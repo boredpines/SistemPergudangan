@@ -6,8 +6,8 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        LblIDBrgValue.Text = MainMenu.datagudang.GSIDBarang
-        LblIDJenisValue.Text = MainMenu.datagudang.GSIDJenis
+        'LblIDBrgValue.Text = MainMenu.datagudang.GSIDBarang
+        'LblIDJenisValue.Text = MainMenu.datagudang.GSIDJenis
         LblBarangValue.Text = MainMenu.datagudang.GSNama
         LblStock.Text = MainMenu.datagudang.GSStock
     End Sub

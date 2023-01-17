@@ -2,12 +2,11 @@
 Imports MySql.Data.MySqlClient
 
 Public Class FungsiBarang
-    Private IDBarang As String
-    Private IDJenis As String
+    Private namajenis As String
     Private Nama As String
-    Private Stock As String
-    Private deleteItem As String
-    Private BarangDataTable As New ArrayList()
+    Private Stock As Integer
+    'Private deleteItem As String
+    'Private BarangDataTable As New ArrayList()
 
     Public Shared dbconn As New MySqlConnection
     Public Shared sqlcommand As New MySqlCommand
@@ -17,23 +16,14 @@ Public Class FungsiBarang
     Private server As String = "localhost"
     Private username As String = "root"
     Private password As String = ""
-    Private database As String = "gudang"
+    Private database As String = "pergudangan"
 
-    Public Property GSIDBarang() As String
+    Public Property GSnamajenis() As String
         Get
-            Return IDBarang
+            Return namajenis
         End Get
         Set(ByVal value As String)
-            IDBarang = value
-        End Set
-    End Property
-
-    Public Property GSIDJenis() As String
-        Get
-            Return IDJenis
-        End Get
-        Set(ByVal value As String)
-            IDJenis = value
+            namajenis = value
         End Set
     End Property
 
@@ -46,62 +36,91 @@ Public Class FungsiBarang
         End Set
     End Property
 
-    Public Property GSStock() As String
+    Public Property GSStock() As Integer
         Get
             Return Stock
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             Stock = value
         End Set
     End Property
 
-    Public Property GSdelete() As String
-        Get
-            Return deleteItem
-        End Get
-        Set(value As String)
-            deleteItem = value
-        End Set
-    End Property
+    'Public Property GSdelete() As String
+    '    Get
+    '        Return deleteItem
+    '    End Get
+    '    Set(value As String)
+    '        deleteItem = value
+    '    End Set
+    'End Property
 
-    Public Sub AddBarangDataTable(IDBarang As String,
-                                   IDJenis As String,
-                                   Nama As String,
-                                   Stock As String)
+    'Public Sub AddBarangDataTable(IDBarang As String,
+    '                               IDJenis As String,
+    '                               Nama As String,
+    '                               Stock As String)
 
-        BarangDataTable.Add({IDBarang,
-                             IDJenis,
-                             Nama,
-                             Stock})
-    End Sub
+    '    BarangDataTable.Add({IDBarang,
+    '                         IDJenis,
+    '                         Nama,
+    '                         Stock})
+    'End Sub
 
-    Public Function RemoveBarangDataTable(index As Integer)
-        BarangDataTable.RemoveAt(index)
-    End Function
+    'Public Function RemoveBarangDataTable(index As Integer)
+    '    BarangDataTable.RemoveAt(index)
+    'End Function
 
-    Public ReadOnly Property getBarangDataTable() As ArrayList
-        Get
-            Return BarangDataTable
-        End Get
-    End Property
+    'Public ReadOnly Property getBarangDataTable() As ArrayList
+    '    Get
+    '        Return BarangDataTable
+    '    End Get
+    'End Property
 
-    Public Function ConvertBarangToString(vals As List(Of String))
-        Dim builder As StringBuilder = New StringBuilder()
-        For Each val As String In vals
-            builder.Append(val).Append("|")
-        Next
+    'Public Function ConvertBarangToString(vals As List(Of String))
+    '    Dim builder As StringBuilder = New StringBuilder()
+    '    For Each val As String In vals
+    '        builder.Append(val).Append("|")
+    '    Next
 
-        'convert to string
-        Dim res = builder.ToString()
-        Return res
-    End Function
+    '    'convert to string
+    '    Dim res = builder.ToString()
+    '    Return res
+    'End Function
 
-    Public Function ConvertStringToBarang(value As String)
-        Dim arr() As String = value.Split("|")
+    'Public Function ConvertStringToBarang(value As String)
+    '    Dim arr() As String = value.Split("|")
 
-        'convert to list
-        Dim vals As List(Of String) = arr.ToList()
-        Return vals
+    '    'convert to list
+    '    Dim vals As List(Of String) = arr.ToList()
+    '    Return vals
+    'End Function
+
+    Public Function GetDatajenis()
+        Dim result As New List(Of String)
+
+        dbconn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            dbconn.Open()
+            sqlquery = "SELECT nama_jenis FROM jenis_barang"
+            Try
+                sqlcommand = New MySqlCommand(sqlquery, dbconn)
+                sqlread = sqlcommand.ExecuteReader
+
+                While sqlread.Read
+                    result.Add(sqlread.GetString(0).ToString)
+                End While
+
+                Return result
+            Catch ex As Exception
+                MsgBox("Problem loading data: " & ex.Message.ToString)
+            End Try
+            sqlread.Close()
+            dbconn.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        Finally
+            dbconn.Dispose()
+        End Try
     End Function
 
     Public Function GetDataBarangDatabase() As DataTable
@@ -112,11 +131,10 @@ Public Class FungsiBarang
         + "password=" + password + ";" + "database=" + database
             dbconn.Open()
             sqlcommand.Connection = dbconn
-            sqlcommand.CommandText = "SELECT ID AS 'ID',
-                                      IDBarang As 'ID Barang',
-                                      IDJenis As 'ID Jenis barang',
-                                      Nama As 'Nama Barang',
-                                      Stock As 'Stock'
+            sqlcommand.CommandText = "SELECT id_barang AS 'ID',
+                                      nama_barang As 'Nama Barang',
+                                      nama_jenis As 'Jenis barang',
+                                      stock As 'Stock'
                                       FROM barang"
             sqlread = sqlcommand.ExecuteReader
 
@@ -130,28 +148,27 @@ Public Class FungsiBarang
             dbconn.Dispose()
         End Try
     End Function
-    Public Function AddDataBarangDatabase(IDBarang As String,
-                                          IDJenis As String,
-                                          Nama As String,
-                                          Stock As String)
+
+    Public Function AddDataBarangDatabase(nama_barang As String,
+                                          stock As Integer,
+                                          nama_jenis As String)
+
         dbconn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
         + "password=" + password + ";" + "database=" + database
 
         Try
             dbconn.Open()
             sqlcommand.Connection = dbconn
-            sqlquery = "INSERT INTO barang(IDBarang, IDJenis,
-                        Nama, Stock) VALUE ('" _
-                & IDBarang & "', '" _
-                & IDJenis & "', '" _
-                & Nama & "', '" _
-                & Stock & "')"
-            Debug.Print(sqlquery)
+            sqlquery = "INSERT INTO barang(id_barang, nama_barang,
+                        stock, nama_jenis) VALUE ('','" _
+                & nama_barang & "', '" _
+                & stock & "', '" _
+                & nama_jenis & "')"
+            'Debug.Print(sqlquery)
 
             sqlcommand = New MySqlCommand(sqlquery, dbconn)
             sqlread = sqlcommand.ExecuteReader
-            MessageBox.Show("Tambah Database")
-            dbconn.Close()
+            MessageBox.Show("Data Ditambah")
             sqlread.Close()
             dbconn.Close()
         Catch ex As Exception
@@ -161,7 +178,39 @@ Public Class FungsiBarang
         End Try
     End Function
 
-    Public Function GetDataKoleksiByIDDatabase(ID As Integer) As List(Of String)
+    Public Function GetData()
+        Dim result As New List(Of String)
+
+        dbconn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
+        + "password=" + password + ";" + "database=" + database
+
+        Try
+            dbconn.Open()
+            sqlcommand.Connection = dbconn
+            sqlquery = "SELECT nama_jenis FROM jenis_barang"
+
+            'Try
+            sqlcommand = New MySqlCommand(sqlquery, dbconn)
+            sqlread = sqlcommand.ExecuteReader
+
+            While sqlread.Read
+                result.Add(sqlread.GetString(0).ToString)
+            End While
+            sqlread.Close()
+            dbconn.Close()
+            Return result
+            'Catch ex As Exception
+            '    MsgBox("Problem loading data: " & ex.Message.ToString)
+            'End Try
+
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        Finally
+            dbconn.Dispose()
+        End Try
+    End Function
+
+    Public Function GetDataBarangByIDDatabase(ID As Integer) As List(Of String)
         Dim result As New List(Of String)
 
         Try
@@ -169,13 +218,12 @@ Public Class FungsiBarang
       + "password=" + password + ";" + "database=" + database
             dbconn.Open()
             sqlcommand.Connection = dbconn
-            sqlcommand.CommandText = " SELECT ID, 
-                                       IDBarang, 
-                                       IDJenis, 
-                                       Nama, 
-                                       Stock
-                                   FROM barang
-                                   WHERE ID= '" & ID & " ' "
+            sqlcommand.CommandText = " SELECT id_barang,
+                                nama_barang,
+                                stock,
+                                nama_jenis
+                                FROM barang
+                                WHERE id_barang='" & ID & "'"
             sqlread = sqlcommand.ExecuteReader
 
             While sqlread.Read
@@ -183,7 +231,6 @@ Public Class FungsiBarang
                 result.Add(sqlread.GetString(1).ToString())
                 result.Add(sqlread.GetString(2).ToString())
                 result.Add(sqlread.GetString(3).ToString())
-                result.Add(sqlread.GetString(4).ToString())
             End While
 
             sqlread.Close()
@@ -197,34 +244,37 @@ Public Class FungsiBarang
     End Function
 
     Public Function UpdateDataBarangByIDDatabase(ID As Integer,
-                                                 IDBarang As Integer,
-                                                 IDJenis As Integer,
-                                                 Nama As String,
-                                                 Stock As Integer)
-        dbconn.ConnectionString = "server =" + server + ";" _
-                                + "user id=" + username + ";" _
-                                + "password=" + password + ";" _
-                                + "database=" + database
+                                        nama_barang As String,
+                                        stock As Integer,
+                                        nama_jenis As String)
 
+        dbconn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
         Try
             dbconn.Open()
             sqlcommand.Connection = dbconn
-            sqlquery = " UPDATE barang SET IDBarang='" & IDBarang & "', " &
-                        "IDJenis='" & IDJenis & "', " &
-                        "Nama='" & Nama & "', " &
-                        "Stock='" & Stock & "' " &
-                        "WHERE ID='" & ID & "'"
 
-            sqlcommand = New MySqlCommand(sqlquery, dbconn)
-            sqlread = sqlcommand.ExecuteReader
-            MessageBox.Show("Data sudah diperbarui")
-            dbconn.Close()
+            sqlquery = "UPDATE barang SET " &
+                       "nama_barang='" & nama_barang & "', " &
+                       "stock='" & stock & "', " &
+                       "nama_jenis='" & nama_jenis & "' WHERE id_barang ='" & ID & "'"
+
+            Try
+                sqlcommand = New MySqlCommand(sqlquery, dbconn)
+                sqlread = sqlcommand.ExecuteReader
+                dbconn.Close()
+                sqlread.Close()
+                MsgBox("Data updated.")
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                dbconn.Dispose()
+            End Try
             sqlread.Close()
         Catch ex As Exception
-            Return ex.Message
-        Finally
-            dbconn.Dispose()
+            MsgBox("Connection Error: " & ex.Message.ToString)
         End Try
+
     End Function
 
     Public Function DeleteDataKoleksiByIDDatabase(ID As Integer)
@@ -235,7 +285,7 @@ Public Class FungsiBarang
             dbconn.Open()
             sqlcommand.Connection = dbconn
             sqlquery = " DELETE FROM barang " &
-                       " WHERE ID ='" & ID & "'"
+                       " WHERE id_barang ='" & ID & "'"
 
             Debug.WriteLine(sqlquery)
 
@@ -244,7 +294,6 @@ Public Class FungsiBarang
 
             dbconn.Close()
 
-            ' Form_Perpustakaan.sqlDR.Load(sqlRead)
             sqlread.Close()
             dbconn.Close()
         Catch ex As Exception

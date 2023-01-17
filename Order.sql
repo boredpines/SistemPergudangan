@@ -1,39 +1,60 @@
-CREATE DATABASE utssashiiks;
-USE DATABASE utssashiiks;
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jan 17, 2023 at 03:37 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
-CREATE table karyawan(
-	nopeg int (10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nama varchar (25) NOT NULL,
-	alamat varchar (25) NOT NULL
-);
-
-ALTER TABLE karyawan
-ADD COLUMN jenis_kelamin CHAR(2) NOT NULL,
-ADD COLUMN id_departement INT(8) NOT NULL,
-ADD COLUMN departement Varchar (15) NOT NULL,
-ADD COLUMN kode_pos CHAR (5) NOT NULL,
-ADD COLUMN tanggal_lahir DATE NOT NULL,
-ADD COLUMN salary INT (10) NOT NULL
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-insert into karyawan (nama, alamat, jenis_kelamin, id_departement, departement, kode_pos, tanggal_lahir, salary)
-VALUES 
-	("sashi kirana", "BOGOR", "P", 1, "kominfo", "1111", "2003-05-21", 200000),
-	("Nadya Zahra", "BOGOR", "P", 2, "Litbank", "1212", "2002-10-17", 100000),
-	("Abizard", "TANGERANG", "L", 3, "Litbank", "1313", "2003-05-2", 300000),
-	("Arfiano Jordhy", "BOGOR", "L", 4, "kominfo", "1414", "2002-10-28", 400000),
-	("Kevin Fadhillah", "JAKUT", "L", 5, "kominfo", "1515", "2003-05-15", 500000),
-	("Alifia Aurelia", "TANGERANG", "P", "P", 6, "Litbank", "1616", "2002-07-26", 600000),
-;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-SELECT nama, jenis_kelamin FROM karyawan;
+--
+-- Database: `order`
+--
 
-SELECT nama, jenis_kelamin FROM karyawan WHERE jenis_kelamin='P';
+-- --------------------------------------------------------
 
-SELECT nama, id_departement, salary FROM karyawan;
+--
+-- Table structure for table `order`
+--
 
-ALTER TABLE karyawan
-ADD COLUMN id-divisi INT(10)
+CREATE TABLE `order` (
+  `id_barang` int(11) NOT NULL,
+  `tanggal_order` date NOT NULL,
+  `jumlah_order` varchar(100) NOT NULL DEFAULT '0',
+  `status` varchar(100) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE karyawan
-RENAME TO pegawai;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id_barang`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

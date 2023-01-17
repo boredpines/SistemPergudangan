@@ -6,14 +6,13 @@ Imports Mysqlx
 Imports Mysqlx.XDevAPI.Common
 
 Public Class jenis_barang
-    Private IdJenis As Integer
-    Private NamaJenis As String
-    Private SatuanJenis As String
-    Private JenisDataTable As New ArrayList()
+    Private id_jenis As Integer
+    Private nama_jenis As String
+    Private satuan As String
+    Private jumlah As Integer
 
     Public Shared Functions
     Public Shared Selected As String
-
 
     Public Shared DbConn As New MySqlConnection
     Public Shared sqlCommand As New MySqlCommand
@@ -23,65 +22,59 @@ Public Class jenis_barang
     Private server As String = "localhost"
     Private username As String = "root"
     Private password As String = ""
-    Private database As String = "SistemPergudangan"
+    Private database As String = "pergudangan"
 
     'Fungsi GS
     Public Property GSIdJenis() As Integer
         Get
-            Return IdJenis
+            Return id_jenis
         End Get
         Set(ByVal value As Integer)
-            IdJenis = value
+            id_jenis = value
+        End Set
+    End Property
+    Public Property GSjumlah() As Integer
+        Get
+            Return jumlah
+        End Get
+        Set(ByVal value As Integer)
+            jumlah = value
         End Set
     End Property
     Public Property GSNamaJenis() As String
         Get
-            Return NamaJenis
+            Return nama_jenis
         End Get
         Set(ByVal value As String)
-            NamaJenis = value
+            nama_jenis = value
         End Set
     End Property
 
     Public Property GSSatuanJenis() As String
         Get
-            Return SatuanJenis
+            Return satuan
         End Get
         Set(ByVal value As String)
-            SatuanJenis = value
+            satuan = value
         End Set
     End Property
 
     'Fungsi Database
 
-    Public Sub AddJenisBarang(IdJenis As Integer,
-                              NamaJenis As String,
-                              SatuanJenis As String)
-        JenisDataTable.Add({IdJenis,
-                           NamaJenis,
-                           SatuanJenis})
-    End Sub
-
-    Public ReadOnly Property getJenisDataTable() As ArrayList
-        Get
-            Return JenisDataTable
-        End Get
-    End Property
-
-    Public Function GetDataBarangDatabase() As DataTable
+    Public Function GetDataJenisDatabase() As DataTable
         Try
             Dim result As New DataTable
 
-            DbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
-        + "password=" + password + ";" + "database=" + database
+            DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
             DbConn.Open()
             sqlCommand.Connection = DbConn
-            sqlCommand.CommandText = "SELECT ID AS 'ID',
-                                      IdJenis As 'IdJenis',
-                                      IDJenis As 'ID Jenis barang',
-                                      Nama As 'Nama Barang',
-                                      Stock As 'Stock'
-                                      FROM barang"
+            sqlCommand.CommandText = "SELECT id_jenis AS 'ID',
+                                      nama_jenis As 'Nama Jenis Barang',
+                                      jumlah As 'Jumlah',
+                                      satuan As 'Satuan'
+                                      FROM jenis_barang"
             sqlRead = sqlCommand.ExecuteReader
 
             result.Load(sqlRead)
@@ -94,138 +87,188 @@ Public Class jenis_barang
             DbConn.Dispose()
         End Try
     End Function
-    'Public Function AddJenisTable(IdJenis As Integer,
-    '                                NamaJenis As String,
-    '                                SatuanJenis As String
-    '                              )
-    '    Try
-    '        DbConn = New MySqlConnection("Data Source=localhost;user id=root;password=;database=SistemPergudangan;Convert Zero Datetime=True;Allow Zero Datetime=True")
-    '        DbConn.Open()
-    '        sqlQuery = "INSERT INTO jenisbarang(IdJenis, NamaJenis, SatuanJenis) VALUES ( '','" & NamaJenis & "','" & SatuanJenis & "')"
-    '        Try
-    '            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
-    '            sqlRead = sqlCommand.ExecuteReader()
-    '            sqlRead.Close()
-    '            MsgBox("Data inserted.")
-    '        Catch ex As Exception
-    '            MsgBox("Failed to insert data: " & ex.Message.ToString())
-    '        End Try
-    '    Catch ex As Exception
-    '        sqlRead.Close()
-    '    Catch ex As Exception
-    '        MsgBox("Connection Error: " & ex.Message.ToString)
-    '    End Try
-    'End Function
 
-    'Public Function GetDataJenisDatabase() As DataTable
-    '    Dim result As New DataTable
+    Public Function AddDataJenisDatabase(nama_jenis As String,
+                                         jumlah As Integer,
+                                         satuan As String)
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
 
-    '    DbConn = New MySqlConnection("Data Source=localhost;user id=root;password=;database=SistemPergudangan;Convert Zero Datetime=True;Allow Zero Datetime=True")
-    '    Try
-    '        DbConn.Open()
-    '        sqlQuery = "SELECT IdJenis AS 'IdJenis',
-    '                              NamaJenis AS 'NamaJenis',
-    '                              SatuanJenis AS 'SatuanJenis'
-    '                              FROM jenisbarang"
-    '        Try
-    '            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
-    '            sqlRead = sqlCommand.ExecuteReader
-    '            result.Load(sqlRead)
-    '            Return result
-    '        Catch ex As Exception
-    '            MsgBox("Problem loading data: " & ex.Message.ToString)
-    '        End Try
-    '        sqlRead.Close()
-    '    Catch ex As Exception
-    '        MsgBox("Connection Error: " & ex.Message.ToString)
-    '    End Try
+        DbConn.Open()
+        sqlQuery = "INSERT INTO jenis_barang VALUES('','" _
+                & nama_jenis & "', '" _
+                & jumlah & "', '" _
+                & satuan & "')"
+        Try
+            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+            sqlRead = sqlCommand.ExecuteReader()
+            sqlRead.Close()
+            DbConn.Close()
+            MsgBox("Data inserted.")
+        Catch ex As Exception
+            MsgBox("Failed to insert data: " & ex.Message.ToString())
+        Finally
+            DbConn.Dispose()
+        End Try
+    End Function
 
-    'End Function
+    Public Function GetJenisDatabase() As DataTable
+        Dim result As New DataTable
 
-    'Public Function GetDataNama()
-    '    Dim result As New List(Of String)
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
 
-    '    DbConn = New MySqlConnection("Data Source=localhost;user id=root;password=;database=SistemPergudangan;Convert Zero Datetime=True;Allow Zero Datetime=True")
-    '    Try
-    '        DbConn.Open()
-    '        sqlQuery = "SELECT IdJenis FROM jenisbarang"
-    '        Try
-    '            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
-    '            sqlRead = sqlCommand.ExecuteReader
+        Try
+            DbConn.Open()
+            sqlQuery = "SELECT nama_jenis AS 'Nama Jenis',
+                               jumlah AS 'Jumlah',
+                               satuan As 'Satuan'
+                               FROM jenis_barang"
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+                sqlRead = sqlCommand.ExecuteReader
+                result.Load(sqlRead)
+                Return result
+            Catch ex As Exception
+                MsgBox("Problem loading data: " & ex.Message.ToString)
+            End Try
+            sqlRead.Close()
+            DbConn.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        Finally
+            DbConn.Dispose()
+        End Try
 
-    '            While sqlRead.Read
-    '                result.Add(sqlRead.GetString(0))
-    '            End While
+    End Function
 
-    '            Return result
-    '        Catch ex As Exception
-    '            MsgBox("Problem loading data: " & ex.Message.ToString)
-    '        End Try
-    '        sqlRead.Close()
-    '    Catch ex As Exception
-    '        MsgBox("Connection Error: " & ex.Message.ToString)
-    '    End Try
-    'End Function
+    Public Function GetDataNama()
+        Dim result As New List(Of String)
 
-    'Public Function GetDataTableById(ID As Integer) As List(Of String)
-    '    Dim result As New List(Of String)
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            DbConn.Open()
+            sqlQuery = "SELECT nama_jenis FROM jenis_darang"
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+                sqlRead = sqlCommand.ExecuteReader
 
-    '    DbConn = New MySqlConnection("Data Source=localhost;user id=root;password=;database=SistemPergudangan;Convert Zero Datetime=True;Allow Zero Datetime=True")
-    '    Try
-    '        DbConn.Open()
-    '        sqlQuery = "SELECT * FROM jenisbarang WHERE IdJenis='" & ID & "'"
-    '        Try
-    '            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
-    '            sqlRead = sqlCommand.ExecuteReader
+                While sqlRead.Read
+                    result.Add(sqlRead.GetString(0))
+                End While
 
-    '            While sqlRead.Read
-    '                result.Add(sqlRead.GetString(0).ToString())
-    '                result.Add(sqlRead.GetString(1).ToString())
-    '                result.Add(sqlRead.GetString(2).ToString())
+                Return result
+            Catch ex As Exception
+                MsgBox("Problem loading data: " & ex.Message.ToString)
+            End Try
+            sqlRead.Close()
+            DbConn.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        Finally
+            DbConn.Dispose()
+        End Try
+    End Function
 
-    '            End While
-    '            Return result
-    '        Catch ex As Exception
-    '            MsgBox("Problem loading data: " & ex.Message.ToString)
-    '        End Try
-    '        sqlRead.Close()
-    '    Catch ex As Exception
-    '        MsgBox("Connection Error: " & ex.Message.ToString)
-    '    End Try
-    'End Function
+    Public Function GetDataJenisById(ID As Integer) As List(Of String)
+        Dim result As New List(Of String)
 
-    'Public Function UpdateDataJenisByID(IdJenis As Integer,
-    '                                    NamaJenis As String,
-    '                                    SatuanJenis As String)
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            DbConn.Open()
+            sqlQuery = "SELECT id_jenis,
+                                nama_jenis,
+                                jumlah,
+                                satuan
+                                FROM jenis_barang
+                                WHERE id_jenis='" & ID & "'"
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+                sqlRead = sqlCommand.ExecuteReader
 
-    '    DbConn = New MySqlConnection("Data Source=localhost;user id=root;password=;database=SistemPergudangan;Convert Zero Datetime=True;Allow Zero Datetime=True")
-    '    Try
-    '        DbConn.Open()
-    '        sqlCommand.Connection = DbConn
+                While sqlRead.Read
+                    result.Add(sqlRead.GetString(0).ToString())
+                    result.Add(sqlRead.GetString(1).ToString())
+                    result.Add(sqlRead.GetString(2).ToString())
+                    result.Add(sqlRead.GetString(3).ToString())
 
-    '        sqlQuery = "UPDATE jenisbarang SET " _
-    '                    + "IdJenis='" & IdJenis & "'," _
-    '                    + "NamaJenis='" & NamaJenis & "'," _
-    '                    + "SatuanJenis='" & SatuanJenis & "' WHERE idJenis='" & IdJenis & "' "
-    '        Try
-    '            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
-    '            sqlRead = sqlCommand.ExecuteReader
-    '            DbConn.Close()
-    '            sqlRead.Close()
-    '            MsgBox("Data updated.")
-    '        Catch ex As Exception
-    '            MsgBox("Failed to update data: " & ex.Message.ToString())
-    '        Finally
-    '            DbConn.Dispose()
-    '        End Try
-    '        sqlRead.Close()
-    '    Catch ex As Exception
-    '        MsgBox("Connection Error: " & ex.Message.ToString)
-    '    End Try
+                End While
+                Return result
+            Catch ex As Exception
+                MsgBox("Problem loading data: " & ex.Message.ToString)
+            End Try
+            sqlRead.Close()
+            DbConn.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        Finally
+            DbConn.Dispose()
+        End Try
+    End Function
 
+    Public Function UpdateDataJenisByID(ID As Integer,
+                                        nama_jenis As String,
+                                        jumlah As Integer,
+                                        satuan As String)
 
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            DbConn.Open()
+            sqlCommand.Connection = DbConn
 
+            sqlQuery = "UPDATE jenis_barang SET " &
+                       "nama_jenis='" & nama_jenis & "', " &
+                       "jumlah='" & jumlah & "', " &
+                       "satuan='" & satuan & "' WHERE id_jenis ='" & ID & "'"
 
-    'End Function
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+                sqlRead = sqlCommand.ExecuteReader
+                DbConn.Close()
+                sqlRead.Close()
+                MsgBox("Data updated.")
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                DbConn.Dispose()
+            End Try
+            sqlRead.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        End Try
+
+    End Function
+
+    Public Function DeleteDataJenisByIDDatabase(ID As Integer)
+
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
+        DbConn.Open()
+        Try
+            sqlCommand.Connection = DbConn
+            sqlQuery = "DELETE FROM jenis_barang WHERE id_jenis = '" & ID & "'"
+
+            Debug.WriteLine(sqlQuery)
+
+            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+            sqlRead = sqlCommand.ExecuteReader
+
+            DbConn.Close()
+
+            sqlRead.Close()
+            DbConn.Close()
+
+        Catch ex As Exception
+            Return ex.Message
+        Finally
+            DbConn.Dispose()
+        End Try
+
+    End Function
+
 End Class
 

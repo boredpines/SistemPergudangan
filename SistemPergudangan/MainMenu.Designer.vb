@@ -23,14 +23,14 @@ Partial Class MainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.KoleksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.BtnRemove = New System.Windows.Forms.Button()
         Me.BtnUpdate = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.BtnSelect = New System.Windows.Forms.Button()
         Me.DataGridBarang = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.IncomingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.JenisBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,93 +38,95 @@ Partial Class MainMenu
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KoleksiToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IncomingToolStripMenuItem, Me.OrderToolStripMenuItem, Me.JenisBarangToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 33)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 1, 0, 1)
+        Me.MenuStrip1.Size = New System.Drawing.Size(598, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'KoleksiToolStripMenuItem
-        '
-        Me.KoleksiToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.KoleksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem})
-        Me.KoleksiToolStripMenuItem.Name = "KoleksiToolStripMenuItem"
-        Me.KoleksiToolStripMenuItem.Size = New System.Drawing.Size(83, 29)
-        Me.KoleksiToolStripMenuItem.Text = "Koleksi"
-        '
-        'AddToolStripMenuItem
-        '
-        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(148, 34)
-        Me.AddToolStripMenuItem.Text = "Add"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(530, 67)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(182, 33)
-        Me.ComboBox1.TabIndex = 14
-        '
         'BtnRemove
         '
-        Me.BtnRemove.Location = New System.Drawing.Point(339, 410)
+        Me.BtnRemove.Location = New System.Drawing.Point(496, 267)
+        Me.BtnRemove.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnRemove.Name = "BtnRemove"
-        Me.BtnRemove.Size = New System.Drawing.Size(112, 34)
+        Me.BtnRemove.Size = New System.Drawing.Size(78, 25)
         Me.BtnRemove.TabIndex = 13
         Me.BtnRemove.Text = "Remove" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.BtnRemove.UseVisualStyleBackColor = True
         '
         'BtnUpdate
         '
-        Me.BtnUpdate.Location = New System.Drawing.Point(473, 410)
+        Me.BtnUpdate.Location = New System.Drawing.Point(397, 267)
+        Me.BtnUpdate.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnUpdate.Name = "BtnUpdate"
-        Me.BtnUpdate.Size = New System.Drawing.Size(112, 34)
+        Me.BtnUpdate.Size = New System.Drawing.Size(78, 25)
         Me.BtnUpdate.TabIndex = 12
         Me.BtnUpdate.Text = "Update"
         Me.BtnUpdate.UseVisualStyleBackColor = True
         '
         'BtnAdd
         '
-        Me.BtnAdd.Location = New System.Drawing.Point(473, 364)
+        Me.BtnAdd.Location = New System.Drawing.Point(296, 267)
+        Me.BtnAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(112, 34)
+        Me.BtnAdd.Size = New System.Drawing.Size(78, 25)
         Me.BtnAdd.TabIndex = 11
         Me.BtnAdd.Text = "Add" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.BtnAdd.UseVisualStyleBackColor = True
         '
-        'BtnSelect
-        '
-        Me.BtnSelect.Location = New System.Drawing.Point(339, 364)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.Size = New System.Drawing.Size(112, 34)
-        Me.BtnSelect.TabIndex = 10
-        Me.BtnSelect.Text = "Select" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.BtnSelect.UseVisualStyleBackColor = True
-        '
         'DataGridBarang
         '
         Me.DataGridBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridBarang.Location = New System.Drawing.Point(12, 116)
+        Me.DataGridBarang.Location = New System.Drawing.Point(22, 112)
+        Me.DataGridBarang.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridBarang.Name = "DataGridBarang"
         Me.DataGridBarang.RowHeadersWidth = 62
         Me.DataGridBarang.RowTemplate.Height = 33
-        Me.DataGridBarang.Size = New System.Drawing.Size(788, 225)
+        Me.DataGridBarang.Size = New System.Drawing.Size(552, 135)
         Me.DataGridBarang.TabIndex = 9
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Location = New System.Drawing.Point(22, 43)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(169, 45)
+        Me.Label1.TabIndex = 14
+        Me.Label1.Text = "ITEM LIST"
+        '
+        'IncomingToolStripMenuItem
+        '
+        Me.IncomingToolStripMenuItem.Name = "IncomingToolStripMenuItem"
+        Me.IncomingToolStripMenuItem.Size = New System.Drawing.Size(70, 22)
+        Me.IncomingToolStripMenuItem.Text = "Incoming"
+        '
+        'OrderToolStripMenuItem
+        '
+        Me.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem"
+        Me.OrderToolStripMenuItem.Size = New System.Drawing.Size(49, 22)
+        Me.OrderToolStripMenuItem.Text = "Order"
+        '
+        'JenisBarangToolStripMenuItem
+        '
+        Me.JenisBarangToolStripMenuItem.Name = "JenisBarangToolStripMenuItem"
+        Me.JenisBarangToolStripMenuItem.Size = New System.Drawing.Size(84, 22)
+        Me.JenisBarangToolStripMenuItem.Text = "Jenis Barang"
         '
         'MainMenu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(598, 312)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.BtnRemove)
         Me.Controls.Add(Me.BtnUpdate)
         Me.Controls.Add(Me.BtnAdd)
-        Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.DataGridBarang)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MainMenu"
         Me.Text = "MainMenu"
         Me.MenuStrip1.ResumeLayout(False)
@@ -136,12 +138,12 @@ Partial Class MainMenu
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents KoleksiToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AddToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents BtnRemove As Button
     Friend WithEvents BtnUpdate As Button
     Friend WithEvents BtnAdd As Button
-    Friend WithEvents BtnSelect As Button
     Friend WithEvents DataGridBarang As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents IncomingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrderToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents JenisBarangToolStripMenuItem As ToolStripMenuItem
 End Class

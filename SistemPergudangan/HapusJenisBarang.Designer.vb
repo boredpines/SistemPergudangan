@@ -32,7 +32,7 @@ Partial Class HapusJenisBarang
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(60, 85)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(424, 17)
@@ -42,7 +42,7 @@ Partial Class HapusJenisBarang
         'LblHapusJenis
         '
         Me.LblHapusJenis.AutoSize = True
-        Me.LblHapusJenis.BackColor = System.Drawing.Color.Black
+        Me.LblHapusJenis.BackColor = System.Drawing.SystemColors.Control
         Me.LblHapusJenis.Font = New System.Drawing.Font("Imprint MT Shadow", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.LblHapusJenis.ForeColor = System.Drawing.Color.Red
         Me.LblHapusJenis.Location = New System.Drawing.Point(160, 118)
@@ -54,7 +54,7 @@ Partial Class HapusJenisBarang
         'BtnHapusJenis
         '
         Me.BtnHapusJenis.Font = New System.Drawing.Font("Cambria", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.BtnHapusJenis.Location = New System.Drawing.Point(225, 192)
+        Me.BtnHapusJenis.Location = New System.Drawing.Point(160, 228)
         Me.BtnHapusJenis.Name = "BtnHapusJenis"
         Me.BtnHapusJenis.Size = New System.Drawing.Size(75, 23)
         Me.BtnHapusJenis.TabIndex = 2
@@ -64,19 +64,18 @@ Partial Class HapusJenisBarang
         'BtnCloseHapus
         '
         Me.BtnCloseHapus.Font = New System.Drawing.Font("Cambria", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.BtnCloseHapus.Location = New System.Drawing.Point(418, 280)
+        Me.BtnCloseHapus.Location = New System.Drawing.Point(290, 228)
         Me.BtnCloseHapus.Name = "BtnCloseHapus"
         Me.BtnCloseHapus.Size = New System.Drawing.Size(75, 23)
         Me.BtnCloseHapus.TabIndex = 3
-        Me.BtnCloseHapus.Text = "Close"
+        Me.BtnCloseHapus.Text = "Cancel"
         Me.BtnCloseHapus.UseVisualStyleBackColor = True
         '
         'HapusJenisBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.BackgroundImage = Global.Sistem_Gudang.My.Resources.Resources.seo_social_web_network_internet_262_icon_icons_com_61518__2_
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(542, 315)
         Me.Controls.Add(Me.BtnCloseHapus)

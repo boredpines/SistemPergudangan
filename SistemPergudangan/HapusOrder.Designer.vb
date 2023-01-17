@@ -61,7 +61,7 @@ Partial Class HapusOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(729, 288)
         Me.Controls.Add(Me.BtnHapus)
         Me.Controls.Add(Me.LabelHapusOrder)
         Me.Controls.Add(Me.LabelKet)

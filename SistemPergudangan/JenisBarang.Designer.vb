@@ -27,7 +27,11 @@ Partial Class JenisBarang
         Me.BtnRemove = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
+        Me.MainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DgvJenisBarang, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'DgvJenisBarang
@@ -76,6 +80,29 @@ Partial Class JenisBarang
         Me.BtnAdd.Text = "Add"
         Me.BtnAdd.UseVisualStyleBackColor = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 24)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(450, 24)
+        Me.MenuStrip1.TabIndex = 5
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenuStrip2
+        '
+        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainToolStripMenuItem})
+        Me.MenuStrip2.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip2.Name = "MenuStrip2"
+        Me.MenuStrip2.Size = New System.Drawing.Size(450, 24)
+        Me.MenuStrip2.TabIndex = 6
+        Me.MenuStrip2.Text = "MenuStrip2"
+        '
+        'MainToolStripMenuItem
+        '
+        Me.MainToolStripMenuItem.Name = "MainToolStripMenuItem"
+        Me.MainToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.MainToolStripMenuItem.Text = "Main"
+        '
         'JenisBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -86,9 +113,14 @@ Partial Class JenisBarang
         Me.Controls.Add(Me.BtnRemove)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DgvJenisBarang)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.MenuStrip2)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "JenisBarang"
         Me.Text = "JenisBarang"
         CType(Me.DgvJenisBarang, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip2.ResumeLayout(False)
+        Me.MenuStrip2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -99,4 +131,7 @@ Partial Class JenisBarang
     Friend WithEvents BtnRemove As Button
     Friend WithEvents BtnEdit As Button
     Friend WithEvents BtnAdd As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuStrip2 As MenuStrip
+    Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
 End Class

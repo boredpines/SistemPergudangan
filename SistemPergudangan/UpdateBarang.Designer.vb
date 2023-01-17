@@ -25,113 +25,102 @@ Partial Class UpdateBarang
         Me.BtnUpdateBarang = New System.Windows.Forms.Button()
         Me.TxtStockUpdate = New System.Windows.Forms.TextBox()
         Me.TxtBarangUpdate = New System.Windows.Forms.TextBox()
-        Me.TxtJenisUpdate = New System.Windows.Forms.TextBox()
-        Me.TxtIDBUpdate = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbjenisup = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BtnUpdateBarang
         '
-        Me.BtnUpdateBarang.Location = New System.Drawing.Point(555, 351)
+        Me.BtnUpdateBarang.Location = New System.Drawing.Point(304, 227)
+        Me.BtnUpdateBarang.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnUpdateBarang.Name = "BtnUpdateBarang"
-        Me.BtnUpdateBarang.Size = New System.Drawing.Size(131, 47)
+        Me.BtnUpdateBarang.Size = New System.Drawing.Size(92, 25)
         Me.BtnUpdateBarang.TabIndex = 31
         Me.BtnUpdateBarang.Text = "Update Barang"
         Me.BtnUpdateBarang.UseVisualStyleBackColor = True
         '
         'TxtStockUpdate
         '
-        Me.TxtStockUpdate.Location = New System.Drawing.Point(372, 275)
+        Me.TxtStockUpdate.Location = New System.Drawing.Point(205, 136)
+        Me.TxtStockUpdate.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtStockUpdate.Name = "TxtStockUpdate"
-        Me.TxtStockUpdate.Size = New System.Drawing.Size(150, 31)
+        Me.TxtStockUpdate.Size = New System.Drawing.Size(191, 23)
         Me.TxtStockUpdate.TabIndex = 30
         '
         'TxtBarangUpdate
         '
-        Me.TxtBarangUpdate.Location = New System.Drawing.Point(372, 220)
+        Me.TxtBarangUpdate.Location = New System.Drawing.Point(205, 103)
+        Me.TxtBarangUpdate.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtBarangUpdate.Name = "TxtBarangUpdate"
-        Me.TxtBarangUpdate.Size = New System.Drawing.Size(150, 31)
+        Me.TxtBarangUpdate.Size = New System.Drawing.Size(191, 23)
         Me.TxtBarangUpdate.TabIndex = 29
-        '
-        'TxtJenisUpdate
-        '
-        Me.TxtJenisUpdate.Location = New System.Drawing.Point(372, 167)
-        Me.TxtJenisUpdate.Name = "TxtJenisUpdate"
-        Me.TxtJenisUpdate.Size = New System.Drawing.Size(150, 31)
-        Me.TxtJenisUpdate.TabIndex = 28
-        '
-        'TxtIDBUpdate
-        '
-        Me.TxtIDBUpdate.Location = New System.Drawing.Point(372, 122)
-        Me.TxtIDBUpdate.Name = "TxtIDBUpdate"
-        Me.TxtIDBUpdate.Size = New System.Drawing.Size(150, 31)
-        Me.TxtIDBUpdate.TabIndex = 27
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(182, 275)
+        Me.Label5.Location = New System.Drawing.Point(72, 136)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 25)
+        Me.Label5.Size = New System.Drawing.Size(36, 15)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Stock"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(182, 167)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(130, 25)
-        Me.Label4.TabIndex = 25
-        Me.Label4.Text = "ID jenis Barang"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(182, 118)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 25)
-        Me.Label3.TabIndex = 24
-        Me.Label3.Text = "ID Barang"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(182, 220)
+        Me.Label2.Location = New System.Drawing.Point(72, 103)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 25)
+        Me.Label2.Size = New System.Drawing.Size(79, 15)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Nama Barang"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Showcard Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(115, 52)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Location = New System.Drawing.Point(32, 41)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 23)
+        Me.Label1.Size = New System.Drawing.Size(169, 25)
         Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Update Barang"
+        Me.Label1.Text = "UPDATE BARANG"
+        '
+        'cbjenisup
+        '
+        Me.cbjenisup.FormattingEnabled = True
+        Me.cbjenisup.Location = New System.Drawing.Point(205, 164)
+        Me.cbjenisup.Name = "cbjenisup"
+        Me.cbjenisup.Size = New System.Drawing.Size(191, 23)
+        Me.cbjenisup.TabIndex = 33
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(72, 167)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(72, 15)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Jenis Barang"
         '
         'UpdateBarang
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(457, 314)
+        Me.Controls.Add(Me.cbjenisup)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.BtnUpdateBarang)
         Me.Controls.Add(Me.TxtStockUpdate)
         Me.Controls.Add(Me.TxtBarangUpdate)
-        Me.Controls.Add(Me.TxtJenisUpdate)
-        Me.Controls.Add(Me.TxtIDBUpdate)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "UpdateBarang"
         Me.Text = "UpdateBarang"
         Me.ResumeLayout(False)
@@ -142,11 +131,9 @@ Partial Class UpdateBarang
     Friend WithEvents BtnUpdateBarang As Button
     Friend WithEvents TxtStockUpdate As TextBox
     Friend WithEvents TxtBarangUpdate As TextBox
-    Friend WithEvents TxtJenisUpdate As TextBox
-    Friend WithEvents TxtIDBUpdate As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents cbjenisup As ComboBox
+    Friend WithEvents Label4 As Label
 End Class

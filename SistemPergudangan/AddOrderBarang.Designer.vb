@@ -35,6 +35,7 @@ Partial Class AddOrderBarang
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxIDBarang = New System.Windows.Forms.TextBox()
         Me.LblIDBarang = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBoxStatus.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,9 +43,9 @@ Partial Class AddOrderBarang
         '
         Me.GroupBoxStatus.Controls.Add(Me.RadioButton0)
         Me.GroupBoxStatus.Controls.Add(Me.RadioButton1)
-        Me.GroupBoxStatus.Location = New System.Drawing.Point(362, 179)
+        Me.GroupBoxStatus.Location = New System.Drawing.Point(222, 238)
         Me.GroupBoxStatus.Name = "GroupBoxStatus"
-        Me.GroupBoxStatus.Size = New System.Drawing.Size(142, 73)
+        Me.GroupBoxStatus.Size = New System.Drawing.Size(200, 90)
         Me.GroupBoxStatus.TabIndex = 20
         Me.GroupBoxStatus.TabStop = False
         Me.GroupBoxStatus.Text = "status"
@@ -73,21 +74,21 @@ Partial Class AddOrderBarang
         '
         'TextBoxJmlhOrder
         '
-        Me.TextBoxJmlhOrder.Location = New System.Drawing.Point(351, 125)
+        Me.TextBoxJmlhOrder.Location = New System.Drawing.Point(222, 183)
         Me.TextBoxJmlhOrder.Name = "TextBoxJmlhOrder"
         Me.TextBoxJmlhOrder.Size = New System.Drawing.Size(200, 23)
         Me.TextBoxJmlhOrder.TabIndex = 19
         '
         'DateTimePickerOrder
         '
-        Me.DateTimePickerOrder.Location = New System.Drawing.Point(351, 76)
+        Me.DateTimePickerOrder.Location = New System.Drawing.Point(222, 134)
         Me.DateTimePickerOrder.Name = "DateTimePickerOrder"
         Me.DateTimePickerOrder.Size = New System.Drawing.Size(200, 23)
         Me.DateTimePickerOrder.TabIndex = 18
         '
         'BtnOrder
         '
-        Me.BtnOrder.Location = New System.Drawing.Point(351, 295)
+        Me.BtnOrder.Location = New System.Drawing.Point(347, 352)
         Me.BtnOrder.Name = "BtnOrder"
         Me.BtnOrder.Size = New System.Drawing.Size(75, 23)
         Me.BtnOrder.TabIndex = 17
@@ -97,7 +98,7 @@ Partial Class AddOrderBarang
         'LblStatus
         '
         Me.LblStatus.AutoSize = True
-        Me.LblStatus.Location = New System.Drawing.Point(204, 180)
+        Me.LblStatus.Location = New System.Drawing.Point(75, 238)
         Me.LblStatus.Name = "LblStatus"
         Me.LblStatus.Size = New System.Drawing.Size(39, 15)
         Me.LblStatus.TabIndex = 16
@@ -106,7 +107,7 @@ Partial Class AddOrderBarang
         'LblJmlhOrder
         '
         Me.LblJmlhOrder.AutoSize = True
-        Me.LblJmlhOrder.Location = New System.Drawing.Point(204, 133)
+        Me.LblJmlhOrder.Location = New System.Drawing.Point(75, 191)
         Me.LblJmlhOrder.Name = "LblJmlhOrder"
         Me.LblJmlhOrder.Size = New System.Drawing.Size(78, 15)
         Me.LblJmlhOrder.TabIndex = 15
@@ -115,7 +116,7 @@ Partial Class AddOrderBarang
         'LblTglOrder
         '
         Me.LblTglOrder.AutoSize = True
-        Me.LblTglOrder.Location = New System.Drawing.Point(204, 82)
+        Me.LblTglOrder.Location = New System.Drawing.Point(75, 140)
         Me.LblTglOrder.Name = "LblTglOrder"
         Me.LblTglOrder.Size = New System.Drawing.Size(81, 15)
         Me.LblTglOrder.TabIndex = 14
@@ -124,7 +125,7 @@ Partial Class AddOrderBarang
         'Lblidbrng
         '
         Me.Lblidbrng.AutoSize = True
-        Me.Lblidbrng.Location = New System.Drawing.Point(204, 37)
+        Me.Lblidbrng.Location = New System.Drawing.Point(75, 95)
         Me.Lblidbrng.Name = "Lblidbrng"
         Me.Lblidbrng.Size = New System.Drawing.Size(0, 15)
         Me.Lblidbrng.TabIndex = 13
@@ -132,7 +133,7 @@ Partial Class AddOrderBarang
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(186, 38)
+        Me.Label1.Location = New System.Drawing.Point(57, 96)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(13, 15)
         Me.Label1.TabIndex = 12
@@ -140,7 +141,7 @@ Partial Class AddOrderBarang
         '
         'TextBoxIDBarang
         '
-        Me.TextBoxIDBarang.Location = New System.Drawing.Point(351, 35)
+        Me.TextBoxIDBarang.Location = New System.Drawing.Point(222, 93)
         Me.TextBoxIDBarang.Name = "TextBoxIDBarang"
         Me.TextBoxIDBarang.Size = New System.Drawing.Size(200, 23)
         Me.TextBoxIDBarang.TabIndex = 22
@@ -148,17 +149,28 @@ Partial Class AddOrderBarang
         'LblIDBarang
         '
         Me.LblIDBarang.AutoSize = True
-        Me.LblIDBarang.Location = New System.Drawing.Point(201, 37)
+        Me.LblIDBarang.Location = New System.Drawing.Point(72, 95)
         Me.LblIDBarang.Name = "LblIDBarang"
         Me.LblIDBarang.Size = New System.Drawing.Size(58, 15)
         Me.LblIDBarang.TabIndex = 21
         Me.LblIDBarang.Text = "ID Barang"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Location = New System.Drawing.Point(28, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(120, 25)
+        Me.Label2.TabIndex = 23
+        Me.Label2.Text = "ADD ORDER"
+        '
         'AddOrderBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(524, 437)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBoxStatus)
         Me.Controls.Add(Me.TextBoxJmlhOrder)
         Me.Controls.Add(Me.DateTimePickerOrder)
@@ -192,4 +204,5 @@ Partial Class AddOrderBarang
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBoxIDBarang As TextBox
     Friend WithEvents LblIDBarang As Label
+    Friend WithEvents Label2 As Label
 End Class
