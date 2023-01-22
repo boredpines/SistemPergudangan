@@ -25,7 +25,7 @@ Partial Class Barang
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnhapusinc = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,14 +60,14 @@ Partial Class Barang
         Me.Button1.Text = "Tambah"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnhapusinc
         '
-        Me.Button2.Location = New System.Drawing.Point(404, 356)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Cancel"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnhapusinc.Location = New System.Drawing.Point(404, 356)
+        Me.btnhapusinc.Name = "btnhapusinc"
+        Me.btnhapusinc.Size = New System.Drawing.Size(75, 23)
+        Me.btnhapusinc.TabIndex = 7
+        Me.btnhapusinc.Text = "Hapus"
+        Me.btnhapusinc.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -89,7 +89,7 @@ Partial Class Barang
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(522, 430)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnhapusinc)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label2)
@@ -108,7 +108,7 @@ Partial Class Barang
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnhapusinc As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
 End Class

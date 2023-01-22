@@ -12,7 +12,6 @@ Public Class MainMenu
     Dim selectedRow As DataGridViewRow
     Dim selecteddatatable
 
-
     Public Shared dbconn As New MySqlConnection
     Public Shared sqlcommand As New MySqlCommand
     Public Shared sqlread As MySqlDataReader

@@ -1,12 +1,15 @@
 ﻿Imports System.Text
 Imports MySql.Data.MySqlClient
 Imports Mysqlx.XDevAPI.Common
+Imports Org.BouncyCastle.Crypto.Tls
+
 Public Class DataOrder
     Private idorder As Integer
     Private TanggalOrder As Date
     Private JumlahOrder As Integer
-    Private status As Boolean
+    Private status As String
     Private namabarang As String
+    Private stock As Integer
 
     Public Property GSIdorder() As Integer
         Get
@@ -35,14 +38,15 @@ Public Class DataOrder
         End Set
     End Property
 
-    Public Property GSStatus() As Boolean
+    Public Property GSStatus() As String
         Get
             Return status
         End Get
-        Set(value As Boolean)
+        Set(value As String)
             status = value
         End Set
     End Property
+
     Public Property GSnamabarang() As String
         Get
             Return namabarang
@@ -52,6 +56,15 @@ Public Class DataOrder
         End Set
     End Property
 
+    'Public Property GSstockBarang() As Integer
+    '    Get
+    '        Return stock
+    '    End Get
+    '    Set(value As Integer)
+    '        stock = value
+    '    End Set
+    'End Property
+
 
     Public Shared dbConn As New MySqlConnection
     Public Shared sqlCommand As New MySqlCommand
@@ -59,109 +72,147 @@ Public Class DataOrder
     Private db As New database
     Private sqlQuery As String
 
+    Private server As String = "localhost"
+    Private username As String = "root"
+    Private password As String = ""
+    Private database As String = "pergudangan"
 
-    Public Function GetDataOrderDatabase() As DataTable
 
-        sqlQuery = "SELECT id_order AS 'ID',
-                            nama_barang as 'Barang Order',
-                            tanggal_order AS 'Tanggal Order',
-                            jumlah_order AS 'Jumlah Order',
-                            status AS 'Status'
-                            From barang_keluar"
+    Public Function CheckStatus(stock As Integer,
+                                 jumlahorder As Integer) As Boolean
 
-        Return db.ExecuteQuery(sqlQuery)
+        If stock >= jumlahorder Then
+            Return True
+        ElseIf stock < jumlahorder Then
+            Return False
+        End If
     End Function
 
-    'Public Function AddDataKoleksiDatabase(tanggal_order As Date,
-    '                                   jumlah_order As String,
-    '                                   status As String)
+    Public Function GetPrevSum(nama As String)
+        Try
+            Dim result As Integer
+            dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
 
-    '    Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlCommand.CommandText = "SELECT stock FROM barang WHERE nama_barang ='" & nama & "'"
+            sqlread = sqlCommand.ExecuteReader
 
-    '        MessageBox.Show("test")
-    '        dbConn.ConnectionString = "server = " + server + ";" + "user id=" + username + ";" _
-    '            + "password=" + password + ";" + "database =" + database
+            While sqlread.Read
+                result = sqlread.GetString(0)
+            End While
 
-    '        dbConn.Open()
-    '        sqlCommand.Connection = dbConn
-    '        sqlQuery = "INSERT INTO order( 
-    '                        tanggal_order,
-    '                        jumlah_order, 
-    '                        status
-    '                    ) VALUE('" _
-    '            & tanggal_order.ToString("yyyy/MM/dd") & "', '" _
-    '            & jumlah_order & "', '" _
-    '            & status & "')"
+            sqlread.Close()
+            dbConn.Close()
+            Return result
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        Finally
+            dbConn.Dispose()
+        End Try
+    End Function
+
+    Public Function GetData()
+        Dim result As New List(Of String)
+
+        dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlQuery = "SELECT nama_barang FROM barang"
+
+            sqlCommand = New MySqlCommand(sqlQuery, dbConn)
+            sqlread = sqlCommand.ExecuteReader
+
+            While sqlread.Read
+                result.Add(sqlread.GetString(0).ToString)
+            End While
+
+            sqlread.Close()
+            dbConn.Close()
+
+            Return result
+
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        Finally
+            dbConn.Dispose()
+        End Try
+    End Function
+
+    Public Function AddMasukAktif(nama As String,
+                                  jumlah As Integer,
+                                  tgl As Date)
+
+        dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
+        Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+
+            sqlQuery = "INSERT INTO barang_keluar(id_order, nama_barang,
+                            jumlah_order, status, tanggal_order) VALUE ('','" _
+                            & nama & "', '" _
+                            & jumlah & "', '" _
+                            & "Aktif" & "', '" _
+                            & tgl.ToString("yyyy/MM/dd") & "')"
+
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, dbConn)
+                sqlread = sqlCommand.ExecuteReader
+                dbConn.Close()
+                sqlread.Close()
+                MsgBox("Data berhasil masuk.")
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                dbConn.Dispose()
+            End Try
+            sqlread.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        End Try
+
+    End Function
+
+    Public Function AddMasukFilled(nama As String,
+                                  jumlah As Integer,
+                                  tgl As Date)
+
+        dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
+        Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+
+            sqlQuery = "INSERT INTO barang_keluar(id_order, nama_barang,
+                            jumlah_order, status, tanggal_order) VALUE ('','" _
+                            & nama & "', '" _
+                            & jumlah & "', '" _
+                            & "Terpenuhi" & "', '" _
+                            & tgl.ToString("yyyy/MM/dd") & "')"
+
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, dbConn)
+                sqlread = sqlCommand.ExecuteReader
+                dbConn.Close()
+                sqlread.Close()
+                MsgBox("Data berhasil masuk.")
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                dbConn.Dispose()
+            End Try
+            sqlread.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        End Try
+
+    End Function
 
 
-    '        MessageBox.Show(sqlQuery)
-    '        Debug.Print(sqlQuery)
-
-    '        sqlCommand = New MySqlCommand(sqlQuery, dbConn)
-    '        sqlread = sqlCommand.ExecuteReader
-
-
-    '        sqlread.Close()
-    '        dbConn.Close()
-    '    Catch ex As Exception
-    '        Return ex.Message
-    '    Finally
-    '        dbConn.Dispose()
-    '    End Try
-    'End Function
-
-    'Public Function GetDataKoleksiIDDatabase(id_barang As Integer) As List(Of String)
-    '    Dim result As New List(Of String)
-
-    '    dbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
-    '     + "password=" + password + ";" + "database =" + database
-    '    dbConn.Open()
-    '    sqlCommand.Connection = dbConn
-    '    sqlCommand.CommandText = "SELECT id_barang,
-    '                                tanggal_order,
-    '                                jumlah_order,
-    '                                status
-    '                                FROM order
-    '                                WHERE id_order= '" & id_barang & "'"
-
-    '    sqlread = sqlCommand.ExecuteReader
-
-    '    While sqlread.Read
-    '        result.Add(sqlread.GetString(0).ToString())
-    '        result.Add(sqlread.GetString(1).ToString())
-    '        result.Add(sqlread.GetString(2).ToString())
-    '        result.Add(sqlread.GetString(3).ToString())
-    '    End While
-
-    '    sqlread.Close()
-    '    dbConn.Close()
-    '    Return result
-    'End Function
-
-    'Public Function DeleteDataKoleksiByIDDatabase(id_barang As Integer)
-
-    '    dbConn.ConnectionString = "server -" + server + ";" + "user id-" + username + ";" _
-    '        + "password-" + password + ";" + "database -" + database
-
-    '    Try
-    '        dbConn.Open()
-    '        sqlCommand.Connection = dbConn
-    '        sqlQuery = "DELETE FROM order " &
-    '                "WHERE id_barang-'" & id_barang & "'"
-
-
-    '        Debug.WriteLine(sqlQuery)
-
-    '        sqlCommand = New MySqlCommand(sqlQuery, dbConn)
-    '        sqlread = sqlCommand.ExecuteReader
-    '        dbConn.Close()
-
-    '        sqlread.Close()
-    '        dbConn.Close()
-    '    Catch ex As Exception
-    '        Return ex.Message
-    '    Finally
-    '        dbConn.Dispose()
-    '    End Try
-    'End Function
 End Class

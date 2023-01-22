@@ -27,9 +27,9 @@ Partial Class AddOrderBarang
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LblTglOrder = New System.Windows.Forms.Label()
         Me.LblJmlhOrder = New System.Windows.Forms.Label()
-        Me.DateTimePickerOrder = New System.Windows.Forms.DateTimePicker()
-        Me.TextBoxJmlhOrder = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.dateorder = New System.Windows.Forms.DateTimePicker()
+        Me.txtjumlahorder = New System.Windows.Forms.TextBox()
+        Me.cbnamabarang = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'BtnOrder
@@ -78,37 +78,37 @@ Partial Class AddOrderBarang
         Me.LblJmlhOrder.TabIndex = 15
         Me.LblJmlhOrder.Text = "Jumlah Order"
         '
-        'DateTimePickerOrder
+        'dateorder
         '
-        Me.DateTimePickerOrder.Location = New System.Drawing.Point(222, 134)
-        Me.DateTimePickerOrder.Name = "DateTimePickerOrder"
-        Me.DateTimePickerOrder.Size = New System.Drawing.Size(200, 23)
-        Me.DateTimePickerOrder.TabIndex = 18
+        Me.dateorder.Location = New System.Drawing.Point(222, 134)
+        Me.dateorder.Name = "dateorder"
+        Me.dateorder.Size = New System.Drawing.Size(200, 23)
+        Me.dateorder.TabIndex = 18
         '
-        'TextBoxJmlhOrder
+        'txtjumlahorder
         '
-        Me.TextBoxJmlhOrder.Location = New System.Drawing.Point(222, 183)
-        Me.TextBoxJmlhOrder.Name = "TextBoxJmlhOrder"
-        Me.TextBoxJmlhOrder.Size = New System.Drawing.Size(200, 23)
-        Me.TextBoxJmlhOrder.TabIndex = 19
+        Me.txtjumlahorder.Location = New System.Drawing.Point(222, 183)
+        Me.txtjumlahorder.Name = "txtjumlahorder"
+        Me.txtjumlahorder.Size = New System.Drawing.Size(200, 23)
+        Me.txtjumlahorder.TabIndex = 19
         '
-        'ComboBox1
+        'cbnamabarang
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(222, 88)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(200, 23)
-        Me.ComboBox1.TabIndex = 24
+        Me.cbnamabarang.FormattingEnabled = True
+        Me.cbnamabarang.Location = New System.Drawing.Point(222, 88)
+        Me.cbnamabarang.Name = "cbnamabarang"
+        Me.cbnamabarang.Size = New System.Drawing.Size(200, 23)
+        Me.cbnamabarang.TabIndex = 24
         '
         'AddOrderBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(485, 304)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbnamabarang)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBoxJmlhOrder)
-        Me.Controls.Add(Me.DateTimePickerOrder)
+        Me.Controls.Add(Me.txtjumlahorder)
+        Me.Controls.Add(Me.dateorder)
         Me.Controls.Add(Me.BtnOrder)
         Me.Controls.Add(Me.LblJmlhOrder)
         Me.Controls.Add(Me.LblTglOrder)
@@ -124,7 +124,7 @@ Partial Class AddOrderBarang
     Friend WithEvents Label2 As Label
     Friend WithEvents LblTglOrder As Label
     Friend WithEvents LblJmlhOrder As Label
-    Friend WithEvents DateTimePickerOrder As DateTimePicker
-    Friend WithEvents TextBoxJmlhOrder As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents dateorder As DateTimePicker
+    Friend WithEvents txtjumlahorder As TextBox
+    Friend WithEvents cbnamabarang As ComboBox
 End Class

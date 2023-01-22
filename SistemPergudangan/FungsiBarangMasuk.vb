@@ -44,6 +44,33 @@ Public Class FungsiBarangMasuk
         End Set
     End Property
 
+    Public Function GetDataMasukDatabase() As DataTable
+        Try
+            Dim result As New DataTable
+
+            DbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
+        + "password=" + password + ";" + "database=" + database
+
+            DbConn.Open()
+            sqlCommand.Connection = DbConn
+            sqlCommand.CommandText = "SELECT id_masuk AS 'ID',
+                                      nama_barang As 'Barang Masuk',
+                                      tanggal_masuk As 'Tanggal Masuk',
+                                      jumlah_masuk As 'Jumlah Masuk'
+                                      FROM barang_masuk"
+            sqlRead = sqlCommand.ExecuteReader
+
+            result.Load(sqlRead)
+            sqlRead.Close()
+            DbConn.Close()
+            Return result
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        Finally
+            DbConn.Dispose()
+        End Try
+    End Function
+
 
     Public Function GetData()
         Dim result As New List(Of String)
@@ -162,5 +189,67 @@ Public Class FungsiBarangMasuk
         End Try
 
     End Function
+
+    Public Function GetDataMasukByIDDatabase(ID As Integer) As List(Of String)
+        Dim result As New List(Of String)
+
+        Try
+            DbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
+      + "password=" + password + ";" + "database=" + database
+            DbConn.Open()
+            sqlCommand.Connection = DbConn
+            sqlCommand.CommandText = " SELECT id_masuk,
+                                tanggal_masuk,
+                                jumlah_masuk,
+                                nama_barang
+                                FROM barang_masuk
+                                WHERE id_masuk='" & ID & "'"
+            sqlRead = sqlCommand.ExecuteReader
+
+            While sqlRead.Read
+                result.Add(sqlRead.GetString(0).ToString())
+                result.Add(sqlRead.GetString(1).ToString())
+                result.Add(sqlRead.GetString(2).ToString())
+                result.Add(sqlRead.GetString(3).ToString())
+            End While
+
+            sqlRead.Close()
+            DbConn.Close()
+            Return result
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            DbConn.Dispose()
+        End Try
+    End Function
+
+
+    Public Function DeleteDataMasukByIDDatabase(ID As Integer)
+        DbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
+       + "password=" + password + ";" + "database=" + database
+
+        Try
+            DbConn.Open()
+            sqlCommand.Connection = DbConn
+            sqlQuery = " DELETE FROM barang_masuk " &
+                       " WHERE id_masuk ='" & ID & "'"
+
+            Debug.WriteLine(sqlQuery)
+
+            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+            sqlRead = sqlCommand.ExecuteReader
+
+            DbConn.Close()
+
+            sqlRead.Close()
+            DbConn.Close()
+        Catch ex As Exception
+            Return ex.Message
+        Finally
+            DbConn.Dispose()
+        End Try
+
+    End Function
+
 
 End Class
