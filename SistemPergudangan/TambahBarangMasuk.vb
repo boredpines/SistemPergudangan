@@ -24,8 +24,17 @@
     Private Sub BtnTambah_Click(sender As Object, e As EventArgs) Handles BtnTambah.Click
         FungsiBarangMasuk.GSNamaBarang = CbBarang.Text
         FungsiBarangMasuk.GSjumlah = TxtJumlah.Text
+        FungsiBarangMasuk.GStglmasuk = DateTimePicker1.Value.ToShortDateString
 
-        FungsiBarangMasuk.AddDataBarang(FungsiBarangMasuk.GSNamaBarang, FungsiBarangMasuk.GSjumlah)
+        FungsiBarangMasuk.AddDataBarang(FungsiBarangMasuk.GSNamaBarang, FungsiBarangMasuk.GSjumlah, FungsiBarangMasuk.GStglmasuk)
+        FungsiBarangMasuk.InsertStockBarang(FungsiBarangMasuk.GSNamaBarang, FungsiBarangMasuk.GSjumlah)
         TxtJumlah.Text = ""
+
+        Barang.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
+
     End Sub
 End Class

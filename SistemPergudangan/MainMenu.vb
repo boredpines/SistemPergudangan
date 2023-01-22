@@ -139,6 +139,12 @@ Public Class MainMenu
 
     End Sub
 
+    Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
+        Login.Show()
+        Me.Hide()
+
+    End Sub
+
     'Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     '    tampildata()
     'End Sub

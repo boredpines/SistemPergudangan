@@ -29,6 +29,8 @@ Partial Class TambahBarangMasuk
         Me.Label3 = New System.Windows.Forms.Label()
         Me.BtnTambah = New System.Windows.Forms.Button()
         Me.BtnBatal = New System.Windows.Forms.Button()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'CbBarang
@@ -76,7 +78,7 @@ Partial Class TambahBarangMasuk
         '
         'BtnTambah
         '
-        Me.BtnTambah.Location = New System.Drawing.Point(275, 226)
+        Me.BtnTambah.Location = New System.Drawing.Point(340, 274)
         Me.BtnTambah.Name = "BtnTambah"
         Me.BtnTambah.Size = New System.Drawing.Size(75, 23)
         Me.BtnTambah.TabIndex = 5
@@ -85,18 +87,36 @@ Partial Class TambahBarangMasuk
         '
         'BtnBatal
         '
-        Me.BtnBatal.Location = New System.Drawing.Point(382, 226)
+        Me.BtnBatal.Location = New System.Drawing.Point(447, 274)
         Me.BtnBatal.Name = "BtnBatal"
         Me.BtnBatal.Size = New System.Drawing.Size(75, 23)
         Me.BtnBatal.TabIndex = 6
         Me.BtnBatal.Text = "Batalkan"
         Me.BtnBatal.UseVisualStyleBackColor = True
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(178, 213)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(279, 23)
+        Me.DateTimePicker1.TabIndex = 7
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(62, 213)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(86, 15)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Tanggal Masuk"
+        '
         'TambahBarangMasuk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(557, 319)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.BtnBatal)
         Me.Controls.Add(Me.BtnTambah)
         Me.Controls.Add(Me.Label3)
@@ -118,4 +138,6 @@ Partial Class TambahBarangMasuk
     Friend WithEvents Label3 As Label
     Friend WithEvents BtnTambah As Button
     Friend WithEvents BtnBatal As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label4 As Label
 End Class

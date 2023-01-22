@@ -23,14 +23,15 @@ Partial Class MainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.IncomingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.JenisBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnRemove = New System.Windows.Forms.Button()
         Me.BtnUpdate = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.DataGridBarang = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.IncomingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.JenisBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnlogout = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -45,6 +46,24 @@ Partial Class MainMenu
         Me.MenuStrip1.Size = New System.Drawing.Size(598, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'IncomingToolStripMenuItem
+        '
+        Me.IncomingToolStripMenuItem.Name = "IncomingToolStripMenuItem"
+        Me.IncomingToolStripMenuItem.Size = New System.Drawing.Size(70, 22)
+        Me.IncomingToolStripMenuItem.Text = "Incoming"
+        '
+        'OrderToolStripMenuItem
+        '
+        Me.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem"
+        Me.OrderToolStripMenuItem.Size = New System.Drawing.Size(49, 22)
+        Me.OrderToolStripMenuItem.Text = "Order"
+        '
+        'JenisBarangToolStripMenuItem
+        '
+        Me.JenisBarangToolStripMenuItem.Name = "JenisBarangToolStripMenuItem"
+        Me.JenisBarangToolStripMenuItem.Size = New System.Drawing.Size(84, 22)
+        Me.JenisBarangToolStripMenuItem.Text = "Jenis Barang"
         '
         'BtnRemove
         '
@@ -97,29 +116,24 @@ Partial Class MainMenu
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "ITEM LIST"
         '
-        'IncomingToolStripMenuItem
+        'btnlogout
         '
-        Me.IncomingToolStripMenuItem.Name = "IncomingToolStripMenuItem"
-        Me.IncomingToolStripMenuItem.Size = New System.Drawing.Size(70, 22)
-        Me.IncomingToolStripMenuItem.Text = "Incoming"
-        '
-        'OrderToolStripMenuItem
-        '
-        Me.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem"
-        Me.OrderToolStripMenuItem.Size = New System.Drawing.Size(49, 22)
-        Me.OrderToolStripMenuItem.Text = "Order"
-        '
-        'JenisBarangToolStripMenuItem
-        '
-        Me.JenisBarangToolStripMenuItem.Name = "JenisBarangToolStripMenuItem"
-        Me.JenisBarangToolStripMenuItem.Size = New System.Drawing.Size(84, 22)
-        Me.JenisBarangToolStripMenuItem.Text = "Jenis Barang"
+        Me.btnlogout.BackColor = System.Drawing.Color.Firebrick
+        Me.btnlogout.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnlogout.ForeColor = System.Drawing.Color.White
+        Me.btnlogout.Location = New System.Drawing.Point(489, 43)
+        Me.btnlogout.Name = "btnlogout"
+        Me.btnlogout.Size = New System.Drawing.Size(85, 29)
+        Me.btnlogout.TabIndex = 15
+        Me.btnlogout.Text = "LOGOUT"
+        Me.btnlogout.UseVisualStyleBackColor = False
         '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(598, 312)
+        Me.Controls.Add(Me.btnlogout)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.BtnRemove)
@@ -146,4 +160,5 @@ Partial Class MainMenu
     Friend WithEvents IncomingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrderToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents JenisBarangToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnlogout As Button
 End Class

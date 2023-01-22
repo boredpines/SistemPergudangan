@@ -23,83 +23,54 @@ Partial Class Order
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.OrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddOrderBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BtnRemove = New System.Windows.Forms.Button()
-        Me.BtnSelect = New System.Windows.Forms.Button()
+        Me.MainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridOrder = New System.Windows.Forms.DataGridView()
-        Me.ListBoxOrder = New System.Windows.Forms.ListBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnRmv = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.MainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridOrder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrderToolStripMenuItem, Me.MainToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(709, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'OrderToolStripMenuItem
+        'MainToolStripMenuItem
         '
-        Me.OrderToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddOrderBarangToolStripMenuItem})
-        Me.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem"
-        Me.OrderToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
-        Me.OrderToolStripMenuItem.Text = "Order"
-        '
-        'AddOrderBarangToolStripMenuItem
-        '
-        Me.AddOrderBarangToolStripMenuItem.Name = "AddOrderBarangToolStripMenuItem"
-        Me.AddOrderBarangToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AddOrderBarangToolStripMenuItem.Text = "Add Order Barang"
-        '
-        'BtnRemove
-        '
-        Me.BtnRemove.Location = New System.Drawing.Point(598, 263)
-        Me.BtnRemove.Name = "BtnRemove"
-        Me.BtnRemove.Size = New System.Drawing.Size(75, 23)
-        Me.BtnRemove.TabIndex = 14
-        Me.BtnRemove.Text = "Remove"
-        Me.BtnRemove.UseVisualStyleBackColor = True
-        '
-        'BtnSelect
-        '
-        Me.BtnSelect.Location = New System.Drawing.Point(249, 263)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.Size = New System.Drawing.Size(75, 23)
-        Me.BtnSelect.TabIndex = 13
-        Me.BtnSelect.Text = "Select"
-        Me.BtnSelect.UseVisualStyleBackColor = True
+        Me.MainToolStripMenuItem.Name = "MainToolStripMenuItem"
+        Me.MainToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.MainToolStripMenuItem.Text = "Main"
         '
         'DataGridOrder
         '
         Me.DataGridOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridOrder.Location = New System.Drawing.Point(249, 107)
+        Me.DataGridOrder.Location = New System.Drawing.Point(28, 107)
         Me.DataGridOrder.Name = "DataGridOrder"
         Me.DataGridOrder.RowTemplate.Height = 25
         Me.DataGridOrder.Size = New System.Drawing.Size(424, 150)
         Me.DataGridOrder.TabIndex = 12
         '
-        'ListBoxOrder
+        'Label1
         '
-        Me.ListBoxOrder.FormattingEnabled = True
-        Me.ListBoxOrder.ItemHeight = 15
-        Me.ListBoxOrder.Location = New System.Drawing.Point(36, 107)
-        Me.ListBoxOrder.Name = "ListBoxOrder"
-        Me.ListBoxOrder.Size = New System.Drawing.Size(169, 139)
-        Me.ListBoxOrder.TabIndex = 11
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Location = New System.Drawing.Point(28, 41)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(127, 45)
+        Me.Label1.TabIndex = 15
+        Me.Label1.Text = "ORDER"
         '
         'BtnRmv
         '
         Me.BtnRmv.AutoSize = True
         Me.BtnRmv.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BtnRmv.Location = New System.Drawing.Point(622, 76)
+        Me.BtnRmv.Location = New System.Drawing.Point(471, 107)
         Me.BtnRmv.Name = "BtnRmv"
         Me.BtnRmv.Size = New System.Drawing.Size(51, 25)
         Me.BtnRmv.TabIndex = 10
@@ -110,28 +81,12 @@ Partial Class Order
         '
         Me.BtnAdd.AutoSize = True
         Me.BtnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BtnAdd.Location = New System.Drawing.Point(249, 76)
+        Me.BtnAdd.Location = New System.Drawing.Point(471, 232)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(92, 25)
         Me.BtnAdd.TabIndex = 9
         Me.BtnAdd.Text = "Tambah Order"
         Me.BtnAdd.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(36, 40)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 45)
-        Me.Label1.TabIndex = 15
-        Me.Label1.Text = "ORDER"
-        '
-        'MainToolStripMenuItem
-        '
-        Me.MainToolStripMenuItem.Name = "MainToolStripMenuItem"
-        Me.MainToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.MainToolStripMenuItem.Text = "Main"
         '
         'Order
         '
@@ -142,10 +97,7 @@ Partial Class Order
         Me.ClientSize = New System.Drawing.Size(709, 323)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.BtnRemove)
-        Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.DataGridOrder)
-        Me.Controls.Add(Me.ListBoxOrder)
         Me.Controls.Add(Me.BtnRmv)
         Me.Controls.Add(Me.BtnAdd)
         Me.Name = "Order"
@@ -159,14 +111,9 @@ Partial Class Order
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents OrderToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AddOrderBarangToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BtnRemove As Button
-    Friend WithEvents BtnSelect As Button
     Friend WithEvents DataGridOrder As DataGridView
-    Friend WithEvents ListBoxOrder As ListBox
-    Friend WithEvents BtnRmv As Button
-    Friend WithEvents BtnAdd As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtnRmv As Button
+    Friend WithEvents BtnAdd As Button
 End Class

@@ -1,5 +1,5 @@
 ﻿Public Class Login
-    Public Shared Barang As Barang
+    'Public Shared Barang As Barang
     Public Shared user As User
 
     Public Sub New()
@@ -9,7 +9,7 @@
 
         ' Add any initialization after the InitializeComponent() call.
         user = New User()
-        Barang = New Barang()
+        'Barang = New Barang()
 
     End Sub
     Private Sub butlogin_Click(sender As Object, e As EventArgs) Handles butlogin.Click
@@ -22,7 +22,7 @@
             Dim data_user As List(Of String) = user.CheckAuthDatabase(user.GSusername, user.GSpassword)
 
             If data_user.Count > 0 Then
-                Barang.Show()
+                MainMenu.Show()
                 Me.Hide()
             Else
                 MsgBox("Incorrect username or password", MsgBoxStyle.Critical, "Failure")

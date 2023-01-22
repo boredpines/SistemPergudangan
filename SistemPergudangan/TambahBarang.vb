@@ -23,21 +23,26 @@ Public Class TambahBarang
     Private Sub TxtBarang_Leave(sender As Object, e As EventArgs) Handles TxtBarang.Leave
         If TxtBarang.Text.Length < 1 Then
             TxtBarang.Select()
-            MessageBox.Show("Please add At least 1 String")
+            MessageBox.Show("Please add At least 1 character")
         End If
     End Sub
 
-
     Private Sub BtnAddBarang_Click(sender As Object, e As EventArgs) Handles BtnAddBarang.Click
-        fungsiBarang.GSNama = TxtBarang.Text
-        fungsiBarang.GSStock = TxtStock.Text
-        fungsiBarang.GSnamajenis = cbjenisbarang.SelectedItem
 
-        fungsiBarang.AddDataBarangDatabase(fungsiBarang.GSNama, fungsiBarang.GSStock, fungsiBarang.GSnamajenis)
+        If fungsiBarang.CheckNama(TxtBarang.Text) Then
+            MessageBox.Show("Barang Sudah Ada.")
+        Else
+            fungsiBarang.GSNama = TxtBarang.Text
+            fungsiBarang.GSStock = TxtStock.Text
+            fungsiBarang.GSnamajenis = cbjenisbarang.SelectedItem
 
-        Dim main = New MainMenu()
-        main.Show()
-        Me.Hide()
+            fungsiBarang.AddDataBarangDatabase(fungsiBarang.GSNama, fungsiBarang.GSStock, fungsiBarang.GSnamajenis)
+
+            Dim main = New MainMenu()
+            main.Show()
+            Me.Hide()
+        End If
+
     End Sub
 
     Private Sub TambahBarang_Activated(sender As Object, e As EventArgs) Handles Me.Activated
@@ -54,6 +59,13 @@ Public Class TambahBarang
         If Not Char.IsNumber(e.KeyChar) And Not e.KeyChar = Chr(Keys.Delete) And Not e.KeyChar = Chr(Keys.Back) Then
             e.Handled = True
             MessageBox.Show("Please Insert Number Only")
+        End If
+    End Sub
+
+    Private Sub TxtStock_Leave(sender As Object, e As EventArgs) Handles TxtStock.Leave
+        If TxtStock.Text.Length < 1 Then
+            TxtStock.Select()
+            MessageBox.Show("Please add at least 1 number")
         End If
     End Sub
 End Class

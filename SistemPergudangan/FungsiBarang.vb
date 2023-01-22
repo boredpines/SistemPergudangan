@@ -12,11 +12,14 @@ Public Class FungsiBarang
     Public Shared sqlcommand As New MySqlCommand
     Public Shared sqlread As MySqlDataReader
     Private sqlquery As String
+    Private db As New database
 
     Private server As String = "localhost"
     Private username As String = "root"
     Private password As String = ""
     Private database As String = "pergudangan"
+
+
 
     Public Property GSnamajenis() As String
         Get
@@ -164,19 +167,25 @@ Public Class FungsiBarang
                 & nama_barang & "', '" _
                 & stock & "', '" _
                 & nama_jenis & "')"
-            'Debug.Print(sqlquery)
 
-            sqlcommand = New MySqlCommand(sqlquery, dbconn)
-            sqlread = sqlcommand.ExecuteReader
-            MessageBox.Show("Data Ditambah")
+            Try
+                sqlcommand = New MySqlCommand(sqlquery, dbconn)
+                sqlread = sqlcommand.ExecuteReader
+                dbconn.Close()
+                sqlread.Close()
+                MsgBox("Data berhasil masuk.")
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                dbconn.Dispose()
+            End Try
             sqlread.Close()
-            dbconn.Close()
         Catch ex As Exception
-            Return ex.Message
-        Finally
-            dbconn.Dispose()
+            MsgBox("Connection Error: " & ex.Message.ToString)
         End Try
     End Function
+
+
 
     Public Function GetData()
         Dim result As New List(Of String)
@@ -189,19 +198,17 @@ Public Class FungsiBarang
             sqlcommand.Connection = dbconn
             sqlquery = "SELECT nama_jenis FROM jenis_barang"
 
-            'Try
             sqlcommand = New MySqlCommand(sqlquery, dbconn)
             sqlread = sqlcommand.ExecuteReader
 
             While sqlread.Read
                 result.Add(sqlread.GetString(0).ToString)
             End While
+
             sqlread.Close()
             dbconn.Close()
+
             Return result
-            'Catch ex As Exception
-            '    MsgBox("Problem loading data: " & ex.Message.ToString)
-            'End Try
 
         Catch ex As Exception
             MsgBox("Connection Error: " & ex.Message.ToString)
@@ -304,5 +311,9 @@ Public Class FungsiBarang
 
     End Function
 
+    Public Function CheckNama(nama As String) As Boolean
+        sqlquery = "SELECT nama_barang FROM barang WHERE nama_barang='" & nama & "'"
+        Return db.CheckAvailability(sqlquery)
+    End Function
 
 End Class

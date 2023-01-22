@@ -1,8 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports Org.BouncyCastle.Utilities.Collections
 
 Public Class FungsiBarangMasuk
     Private nama_barang As String
     Private jumlah As Integer
+    Private tglmasuk As Date
+    Private db As New database
 
     Public Shared DbConn As New MySqlConnection
     Public Shared sqlCommand As New MySqlCommand
@@ -32,6 +35,16 @@ Public Class FungsiBarangMasuk
         End Set
     End Property
 
+    Public Property GStglmasuk() As Date
+        Get
+            Return tglmasuk
+        End Get
+        Set(ByVal value As Date)
+            tglmasuk = value
+        End Set
+    End Property
+
+
     Public Function GetData()
         Dim result As New List(Of String)
 
@@ -39,21 +52,21 @@ Public Class FungsiBarangMasuk
             username + ";" + "password = " + password + ";" + "database = " + database
         Try
             DbConn.Open()
-            sqlQuery = "SELECT nama FROM barang"
-            Try
-                sqlCommand = New MySqlCommand(sqlQuery, DbConn)
-                sqlRead = sqlCommand.ExecuteReader
+            sqlCommand.Connection = DbConn
+            sqlQuery = "SELECT nama_barang FROM barang"
 
-                While sqlRead.Read
-                    result.Add(sqlRead.GetString(0).ToString)
-                End While
+            sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+            sqlRead = sqlCommand.ExecuteReader
 
-                Return result
-            Catch ex As Exception
-                MsgBox("Problem loading data: " & ex.Message.ToString)
-            End Try
+            While sqlRead.Read
+                result.Add(sqlRead.GetString(0).ToString)
+            End While
+
             sqlRead.Close()
             DbConn.Close()
+
+            Return result
+
         Catch ex As Exception
             MsgBox("Connection Error: " & ex.Message.ToString)
         Finally
@@ -69,7 +82,7 @@ Public Class FungsiBarangMasuk
 
             DbConn.Open()
             sqlCommand.Connection = DbConn
-            sqlCommand.CommandText = "SELECT stock FROM barang WHERE nama ='" & nama & "'"
+            sqlCommand.CommandText = "SELECT stock FROM barang WHERE nama_barang ='" & nama & "'"
             sqlRead = sqlCommand.ExecuteReader
 
             While sqlRead.Read
@@ -86,7 +99,7 @@ Public Class FungsiBarangMasuk
         End Try
     End Function
 
-    Public Function AddDataBarang(nama As String,
+    Public Function InsertStockBarang(nama As String,
                                   jumlah As Integer)
         Dim stockLama As Integer = GetPrevSum(nama)
         Dim stockBaru As Integer = stockLama + jumlah
@@ -97,7 +110,8 @@ Public Class FungsiBarangMasuk
             sqlCommand.Connection = DbConn
 
             sqlQuery = "UPDATE barang SET " &
-                       "stock='" & stockBaru & "' WHERE nama ='" & nama & "'"
+                       "stock='" & stockBaru & "' WHERE nama_barang ='" & nama & "'"
+
 
             Try
                 sqlCommand = New MySqlCommand(sqlQuery, DbConn)
@@ -105,6 +119,38 @@ Public Class FungsiBarangMasuk
                 DbConn.Close()
                 sqlRead.Close()
                 MsgBox("Stock Ditambahkan.")
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                DbConn.Dispose()
+            End Try
+            sqlRead.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        End Try
+
+    End Function
+    Public Function AddDataBarang(nama As String,
+                                  jumlah As Integer,
+                                  tgl As Date)
+        DbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            DbConn.Open()
+            sqlCommand.Connection = DbConn
+
+            sqlQuery = "INSERT INTO barang_masuk(id_masuk, nama_barang,
+                            jumlah_masuk, tanggal_masuk) VALUE ('','" _
+                            & nama & "', '" _
+                            & jumlah & "', '" _
+                            & tgl.ToString("yyyy/MM/dd") & "')"
+
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, DbConn)
+                sqlRead = sqlCommand.ExecuteReader
+                DbConn.Close()
+                sqlRead.Close()
+                MsgBox("Data berhasil masuk.")
             Catch ex As Exception
                 MsgBox("Failed to update data: " & ex.Message.ToString())
             Finally
