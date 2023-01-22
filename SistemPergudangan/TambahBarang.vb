@@ -31,6 +31,8 @@ Public Class TambahBarang
 
         If fungsiBarang.CheckNama(TxtBarang.Text) Then
             MessageBox.Show("Barang Sudah Ada.")
+        ElseIf cbjenisbarang.Text = "Pilih Jenis" Then
+            MessageBox.Show("Pilih Jenis Barang!")
         Else
             fungsiBarang.GSNama = TxtBarang.Text
             fungsiBarang.GSStock = TxtStock.Text
@@ -46,7 +48,7 @@ Public Class TambahBarang
     End Sub
 
     Private Sub TambahBarang_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        cbjenisbarang.Text = "Pilih Barang"
+        cbjenisbarang.Text = "Pilih Jenis"
         datas = fungsiBarang.GetData()
         cbjenisbarang.Items.Clear()
         For Each dataa In datas

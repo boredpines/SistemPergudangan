@@ -83,6 +83,8 @@ Public Class MainMenu
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Dim formTambahBarang = New TambahBarang
         formTambahBarang.Show()
+        Me.Hide()
+
     End Sub
 
     Private Sub BtnUpdate_Click(sender As Object, e As EventArgs) Handles BtnUpdate.Click
