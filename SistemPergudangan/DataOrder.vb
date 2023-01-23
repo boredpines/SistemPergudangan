@@ -113,6 +113,111 @@ Public Class DataOrder
         End Try
     End Function
 
+    Public Function GetOrderSum() As DataTable
+
+        Try
+            Dim result As New DataTable
+            dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlCommand.CommandText = "SELECT barang.stock as stock, barang_keluar.jumlah_order as jumlah_order, barang_keluar.id_order FROM barang_keluar JOIN barang on barang_keluar.id_barang = barang.id_barang"
+            sqlread = sqlCommand.ExecuteReader
+
+            result.Load(sqlread)
+
+            sqlread.Close()
+            dbConn.Close()
+            Return result
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        Finally
+            dbConn.Dispose()
+        End Try
+    End Function
+
+    Public Function GetJumlahOrder()
+
+        Try
+            Dim result As Integer
+            dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlCommand.CommandText = "SELECT jumlah_order FROM barang_keluar"
+            sqlread = sqlCommand.ExecuteReader
+
+            While sqlread.Read
+                result = sqlread.GetString(0)
+            End While
+
+            sqlread.Close()
+            dbConn.Close()
+            Return result
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        Finally
+            dbConn.Dispose()
+        End Try
+    End Function
+
+    Public Function GetIDbarang(nama As String)
+        Try
+            Dim result As Integer
+            dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlCommand.CommandText = "SELECT id_barang FROM barang WHERE nama_barang ='" & nama & "'"
+            sqlread = sqlCommand.ExecuteReader
+
+            While sqlread.Read
+                result = sqlread.GetString(0)
+            End While
+
+            sqlread.Close()
+            dbConn.Close()
+            Return result
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        Finally
+            dbConn.Dispose()
+        End Try
+    End Function
+
+    Public Function GetDataOrderDatabase() As DataTable
+        Try
+            Dim result As New DataTable
+
+            dbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
+        + "password=" + password + ";" + "database=" + database
+
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlCommand.CommandText = "SELECT id_order AS 'ID',
+                                      nama_barang As 'Barang Pesanan',
+                                      tanggal_order As 'Tanggal Order',
+                                      jumlah_order As 'Jumlah Order',
+                                      status as 'Status'
+                                      FROM barang_keluar"
+            sqlread = sqlCommand.ExecuteReader
+
+            result.Load(sqlread)
+            sqlread.Close()
+            dbConn.Close()
+            Return result
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString())
+        Finally
+            dbConn.Dispose()
+        End Try
+    End Function
+
+
     Public Function GetData()
         Dim result As New List(Of String)
 
@@ -146,6 +251,8 @@ Public Class DataOrder
                                   jumlah As Integer,
                                   tgl As Date)
 
+        Dim idtemp = GetIDbarang(nama)
+
         dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
             username + ";" + "password = " + password + ";" + "database = " + database
 
@@ -153,11 +260,13 @@ Public Class DataOrder
             dbConn.Open()
             sqlCommand.Connection = dbConn
 
+
             sqlQuery = "INSERT INTO barang_keluar(id_order, nama_barang,
-                            jumlah_order, status, tanggal_order) VALUE ('','" _
+                            jumlah_order, status, id_barang, tanggal_order) VALUE ('','" _
                             & nama & "', '" _
                             & jumlah & "', '" _
                             & "Aktif" & "', '" _
+                            & idtemp & "', '" _
                             & tgl.ToString("yyyy/MM/dd") & "')"
 
             Try
@@ -182,6 +291,8 @@ Public Class DataOrder
                                   jumlah As Integer,
                                   tgl As Date)
 
+        Dim idtemp = GetIDbarang(nama)
+
         dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
             username + ";" + "password = " + password + ";" + "database = " + database
 
@@ -190,10 +301,11 @@ Public Class DataOrder
             sqlCommand.Connection = dbConn
 
             sqlQuery = "INSERT INTO barang_keluar(id_order, nama_barang,
-                            jumlah_order, status, tanggal_order) VALUE ('','" _
+                            jumlah_order, status, id_barang, tanggal_order) VALUE ('','" _
                             & nama & "', '" _
                             & jumlah & "', '" _
                             & "Terpenuhi" & "', '" _
+                            & idtemp & "', '" _
                             & tgl.ToString("yyyy/MM/dd") & "')"
 
             Try
@@ -214,5 +326,62 @@ Public Class DataOrder
 
     End Function
 
+    Public Function UpdateStatusAktif(idorder As Integer)
+
+        dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+
+            sqlQuery = "UPDATE barang_keluar SET " &
+                       "status = 'Terpenuhi' WHERE id_order ='" & idorder & "'"
+
+
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, dbConn)
+                sqlread = sqlCommand.ExecuteReader
+                dbConn.Close()
+                sqlread.Close()
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                dbConn.Dispose()
+            End Try
+            sqlread.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        End Try
+
+    End Function
+
+    Public Function UpdateStatusFilled(idorder As Integer)
+
+        dbConn.ConnectionString = "server = " + server + ";" + "user id = " +
+            username + ";" + "password = " + password + ";" + "database = " + database
+        Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+
+            sqlQuery = "UPDATE barang_keluar SET " &
+                       "status = 'Aktif' WHERE id_order ='" & idorder & "'"
+
+
+            Try
+                sqlCommand = New MySqlCommand(sqlQuery, dbConn)
+                sqlread = sqlCommand.ExecuteReader
+                dbConn.Close()
+                sqlread.Close()
+            Catch ex As Exception
+                MsgBox("Failed to update data: " & ex.Message.ToString())
+            Finally
+                dbConn.Dispose()
+            End Try
+            sqlread.Close()
+        Catch ex As Exception
+            MsgBox("Connection Error: " & ex.Message.ToString)
+        End Try
+
+    End Function
 
 End Class

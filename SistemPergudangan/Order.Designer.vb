@@ -28,6 +28,7 @@ Partial Class Order
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnRmv = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
+        Me.btntest = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridOrder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -37,7 +38,7 @@ Partial Class Order
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(709, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(639, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -88,13 +89,23 @@ Partial Class Order
         Me.BtnAdd.Text = "Tambah Order"
         Me.BtnAdd.UseVisualStyleBackColor = True
         '
+        'btntest
+        '
+        Me.btntest.Location = New System.Drawing.Point(471, 174)
+        Me.btntest.Name = "btntest"
+        Me.btntest.Size = New System.Drawing.Size(75, 23)
+        Me.btntest.TabIndex = 16
+        Me.btntest.Text = "test"
+        Me.btntest.UseVisualStyleBackColor = True
+        '
         'Order
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(709, 323)
+        Me.ClientSize = New System.Drawing.Size(639, 301)
+        Me.Controls.Add(Me.btntest)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.DataGridOrder)
@@ -116,4 +127,5 @@ Partial Class Order
     Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnRmv As Button
     Friend WithEvents BtnAdd As Button
+    Friend WithEvents btntest As Button
 End Class
