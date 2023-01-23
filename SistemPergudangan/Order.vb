@@ -1,7 +1,9 @@
 ﻿Public Class Order
     Public Shared DataOrder As DataOrder
-    Public Shared selectedTableOrder
-    Public Shared selectedTableOrderStatus
+    Public Shared selectedTableOrder As Integer
+    Public Shared selectedTableOrderNama As String
+    Dim selectedRow As DataGridViewRow
+
     Dim stok As Integer
 
     Public Sub New()
@@ -53,13 +55,34 @@
         reloadtableorder()
     End Sub
 
-    Private Sub btntest_Click(sender As Object, e As EventArgs) Handles btntest.Click
-        For Each iota In DataOrder.GetOrderSum().Rows
-            If iota(0) >= iota(1) Then
-                DataOrder.UpdateStatusAktif(iota(2))
-            ElseIf iota(0) < iota(1) Then
-                DataOrder.UpdateStatusFilled(iota(2))
-            End If
-        Next
+    Private Sub DataGridOrder_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridOrder.CellClick
+        Dim index As Integer = e.RowIndex
+
+        selectedRow = DataGridOrder.Rows(index)
+        selectedTableOrder = selectedRow.Cells(0).Value
+
+        If Not IsDBNull(selectedRow.Cells(1).Value) Then
+            selectedTableOrderNama = selectedRow.Cells(1).Value
+        Else
+            selectedTableOrderNama = ""
+        End If
+
     End Sub
+
+    Private Sub BtnRmv_Click(sender As Object, e As EventArgs) Handles BtnRmv.Click
+        Try
+            If selectedRow IsNot Nothing Then
+                HapusOrder.LabelHapusOrder.Text = selectedTableOrderNama
+                Dim delform = New HapusOrder()
+                delform.Show()
+            Else
+                MsgBox("You Must Min. 1 Collection", MsgBoxStyle.Critical, "Failure")
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("..")
+        End Try
+
+    End Sub
+
 End Class

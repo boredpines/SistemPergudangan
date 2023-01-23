@@ -52,8 +52,12 @@
 
         selectedRow = DataGridView1.Rows(index)
         selectedTableMasuk = selectedRow.Cells(0).Value
-        selectedTableMasukNama = selectedRow.Cells(1).Value
 
+        If Not IsDBNull(selectedRow.Cells(1).Value) Then
+            selectedTableMasukNama = selectedRow.Cells(1).Value
+        Else
+            selectedTableMasukNama = ""
+        End If
     End Sub
 
     Private Sub Barang_Activated(sender As Object, e As EventArgs) Handles Me.Activated

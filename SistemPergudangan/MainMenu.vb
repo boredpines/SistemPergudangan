@@ -5,22 +5,10 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports MySql.Data.MySqlClient
 Public Class MainMenu
     Public Shared datagudang As FungsiBarang
-    Public Shared listKoleksi As New List(Of String)
-    Public Shared koleksiterpilih As String
     Public Shared selectedTableBarang As Integer
     Public Shared selectedTableBarangNama As String
     Dim selectedRow As DataGridViewRow
     Dim selecteddatatable
-
-    Public Shared dbconn As New MySqlConnection
-    Public Shared sqlcommand As New MySqlCommand
-    Public Shared sqlread As MySqlDataReader
-    Private sqlquery As String
-
-    Private server As String = "localhost"
-    Private username As String = "root"
-    Private password As String = ""
-    Private database As String = "gudang"
 
 
     Public Sub New()
@@ -54,30 +42,19 @@ Public Class MainMenu
         Dim index As Integer = e.RowIndex
 
         selectedRow = DataGridBarang.Rows(index)
-        selectedTableBarang = SelectedRow.Cells(0).Value
-        selectedTableBarangNama = SelectedRow.Cells(1).Value
+        selectedTableBarang = selectedRow.Cells(0).Value
+
+        If Not IsDBNull(selectedRow.Cells(1).Value) Then
+            selectedTableBarangNama = selectedRow.Cells(1).Value
+        Else
+            selectedTableBarangNama = ""
+        End If
+
     End Sub
 
     Private Sub ReloadDataTableDatabase()
         DataGridBarang.DataSource = datagudang.GetDataBarangDatabase()
     End Sub
-
-    'Private Sub BtnSelect_Click_1(sender As Object, e As EventArgs) Handles BtnSelect.Click
-    '    Try
-    '        Dim selectedBarang As List(Of String) = datagudang.GetDataKoleksiByIDDatabase(selectedTableBarang)
-
-    '        datagudang.GSIDBarang = selectedBarang(1)
-    '        datagudang.GSIDJenis = selectedBarang(2)
-    '        datagudang.GSNama = selectedBarang(3)
-    '        datagudang.GSStock = selectedBarang(4)
-
-    '        Dim InfoBarang = New InfoBarang()
-    '        InfoBarang.Show()
-    '    Catch ex As Exception
-    '        MessageBox.Show("...")
-
-    '    End Try
-    'End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Dim formTambahBarang = New TambahBarang
@@ -146,30 +123,5 @@ Public Class MainMenu
 
     End Sub
 
-    'Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    '    tampildata()
-    'End Sub
-
-    'Public Sub tampildata()
-
-    '    dbconn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
-    '   + "password=" + password + ";" + "database=" + database
-
-    '    Try
-    '        dbconn.Open()
-    '        sqlcommand.Connection = dbconn
-    '        sqlquery = "SELECT Nama from barang order by ID"
-
-    '        sqlcommand = New MySqlCommand(sqlquery, dbconn)
-    '        sqlread = sqlcommand.ExecuteReader
-
-    '        sqlread.Close()
-    '        dbconn.Close()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-    '    Finally
-    '        dbconn.Dispose()
-    '    End Try
-    'End Sub
 
 End Class

@@ -47,11 +47,11 @@ Public Class TambahJenisBarang
         Dim errMessage As String
 
         If JenisBarang.Jenis_Barang.GSNamaJenis.Length = 0 Then
-            errMessage = "Harap tulis nama jenisnya!!"
+            errMessage = "Harap tulis nama jenisnya!"
         ElseIf JenisBarang.Jenis_Barang.GSjumlah = 0 Then
-            errMessage = "Harap masukkan jumlahnya!!"
+            errMessage = "Harap masukkan jumlahnya!"
         ElseIf JenisBarang.Jenis_Barang.GSSatuanJenis.Length = 0 Then
-            errMessage = "Harap pilih satuannya!!"
+            errMessage = "Harap pilih satuannya!"
         End If
         Return errMessage
     End Function

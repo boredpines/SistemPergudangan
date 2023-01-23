@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Order
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Order
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -28,7 +28,6 @@ Partial Class Order
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnRmv = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.btntest = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridOrder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,7 +37,7 @@ Partial Class Order
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(639, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(640, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -89,23 +88,12 @@ Partial Class Order
         Me.BtnAdd.Text = "Tambah Order"
         Me.BtnAdd.UseVisualStyleBackColor = True
         '
-        'btntest
-        '
-        Me.btntest.Location = New System.Drawing.Point(471, 174)
-        Me.btntest.Name = "btntest"
-        Me.btntest.Size = New System.Drawing.Size(75, 23)
-        Me.btntest.TabIndex = 16
-        Me.btntest.Text = "test"
-        Me.btntest.UseVisualStyleBackColor = True
-        '
         'Order
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(639, 301)
-        Me.Controls.Add(Me.btntest)
+        Me.ClientSize = New System.Drawing.Size(640, 337)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.DataGridOrder)
@@ -127,5 +115,4 @@ Partial Class Order
     Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnRmv As Button
     Friend WithEvents BtnAdd As Button
-    Friend WithEvents btntest As Button
 End Class

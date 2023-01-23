@@ -384,4 +384,32 @@ Public Class DataOrder
 
     End Function
 
+    Public Function DeleteDataOrderByIDDatabase(ID As Integer)
+        dbConn.ConnectionString = "server =" + server + ";" + "user id=" + username + ";" _
+       + "password=" + password + ";" + "database=" + database
+
+        Try
+            dbConn.Open()
+            sqlCommand.Connection = dbConn
+            sqlQuery = " DELETE FROM barang_keluar " &
+                       " WHERE id_order ='" & ID & "'"
+
+            Debug.WriteLine(sqlQuery)
+
+            sqlCommand = New MySqlCommand(sqlQuery, dbConn)
+            sqlread = sqlCommand.ExecuteReader
+
+            dbConn.Close()
+
+            sqlread.Close()
+            dbConn.Close()
+        Catch ex As Exception
+            Return ex.Message
+        Finally
+            dbConn.Dispose()
+        End Try
+
+    End Function
+
+
 End Class

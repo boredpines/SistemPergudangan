@@ -13,12 +13,12 @@ Public Class TambahBarang
         fungsiBarang = New FungsiBarang()
     End Sub
 
-    Private Sub TxtBarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtBarang.KeyPress
-        If Not Char.IsLetter(e.KeyChar) And Not e.KeyChar = Chr(Keys.Delete) And Not e.KeyChar = Chr(Keys.Back) Then
-            e.Handled = True
-            MessageBox.Show("Please Insert String Only")
-        End If
-    End Sub
+    'Private Sub TxtBarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtBarang.KeyPress
+    '    If Not Char.IsLetter(e.KeyChar) And Not e.KeyChar = Chr(Keys.Delete) And Not e.KeyChar = Chr(Keys.Back) Then
+    '        e.Handled = True
+    '        MessageBox.Show("Please Insert String Only")
+    '    End If
+    'End Sub
 
     Private Sub TxtBarang_Leave(sender As Object, e As EventArgs) Handles TxtBarang.Leave
         If TxtBarang.Text.Length < 1 Then

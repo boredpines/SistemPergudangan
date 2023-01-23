@@ -23,7 +23,13 @@ Public Class JenisBarang
 
         selectedRow = DgvJenisBarang.Rows(index)
         selectedTableKoleksiDB = selectedRow.Cells(0).Value
-        selectedTableKoleksiNama = selectedRow.Cells(1).Value
+
+        If Not IsDBNull(selectedRow.Cells(1).Value) Then
+            selectedTableKoleksiNama = selectedRow.Cells(1).Value
+        Else
+            selectedTableKoleksiNama = ""
+        End If
+
     End Sub
     Public Sub showselectedDB()
         Dim selectedKoleksi As List(Of String) = Jenis_Barang.GetDataJenisById(selectedTableKoleksiDB)
