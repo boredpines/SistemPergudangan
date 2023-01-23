@@ -41,7 +41,7 @@ Partial Class Login
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(696, 68)
+        Me.Label1.Location = New System.Drawing.Point(709, 98)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(140, 45)
         Me.Label1.TabIndex = 0
@@ -57,7 +57,7 @@ Partial Class Login
         Me.butlogin.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.butlogin.ForeColor = System.Drawing.Color.White
         Me.butlogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.butlogin.Location = New System.Drawing.Point(743, 307)
+        Me.butlogin.Location = New System.Drawing.Point(756, 337)
         Me.butlogin.Name = "butlogin"
         Me.butlogin.Size = New System.Drawing.Size(71, 33)
         Me.butlogin.TabIndex = 1
@@ -74,7 +74,7 @@ Partial Class Login
         Me.butreg.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.butreg.ForeColor = System.Drawing.Color.White
         Me.butreg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.butreg.Location = New System.Drawing.Point(848, 307)
+        Me.butreg.Location = New System.Drawing.Point(861, 337)
         Me.butreg.Name = "butreg"
         Me.butreg.Size = New System.Drawing.Size(94, 33)
         Me.butreg.TabIndex = 2
@@ -83,14 +83,14 @@ Partial Class Login
         '
         'txtuname
         '
-        Me.txtuname.Location = New System.Drawing.Point(649, 164)
+        Me.txtuname.Location = New System.Drawing.Point(662, 194)
         Me.txtuname.Name = "txtuname"
         Me.txtuname.Size = New System.Drawing.Size(293, 23)
         Me.txtuname.TabIndex = 3
         '
         'txtpass
         '
-        Me.txtpass.Location = New System.Drawing.Point(649, 231)
+        Me.txtpass.Location = New System.Drawing.Point(662, 261)
         Me.txtpass.Name = "txtpass"
         Me.txtpass.Size = New System.Drawing.Size(293, 23)
         Me.txtpass.TabIndex = 4
@@ -100,7 +100,7 @@ Partial Class Login
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(560, 162)
+        Me.Label2.Location = New System.Drawing.Point(573, 192)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 21)
         Me.Label2.TabIndex = 5
@@ -111,7 +111,7 @@ Partial Class Login
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(564, 229)
+        Me.Label3.Location = New System.Drawing.Point(577, 259)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(79, 21)
         Me.Label3.TabIndex = 6
@@ -132,7 +132,7 @@ Partial Class Login
         Me.Label4.BackColor = System.Drawing.Color.Red
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(137, 164)
+        Me.Label4.Location = New System.Drawing.Point(137, 205)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(227, 45)
         Me.Label4.TabIndex = 0
@@ -144,7 +144,7 @@ Partial Class Login
         Me.Label5.BackColor = System.Drawing.Color.Red
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(12, 209)
+        Me.Label5.Location = New System.Drawing.Point(12, 250)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(494, 32)
         Me.Label5.TabIndex = 9
@@ -154,7 +154,7 @@ Partial Class Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1005, 525)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -166,6 +166,7 @@ Partial Class Login
         Me.Controls.Add(Me.butreg)
         Me.Controls.Add(Me.butlogin)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
         Me.Name = "Login"
         Me.Text = "Login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

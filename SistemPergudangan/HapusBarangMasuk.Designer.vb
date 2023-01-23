@@ -31,38 +31,40 @@ Partial Class HapusBarangMasuk
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(93, 52)
+        Me.Label1.Location = New System.Drawing.Point(31, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(424, 17)
+        Me.Label1.Size = New System.Drawing.Size(427, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "APAKAH ANDA YAKIN INGIN MENGHAPUS JENIS BARANG INI?"
         '
         'BtnYa
         '
-        Me.BtnYa.Location = New System.Drawing.Point(209, 224)
+        Me.BtnYa.BackColor = System.Drawing.Color.White
+        Me.BtnYa.Location = New System.Drawing.Point(283, 153)
         Me.BtnYa.Name = "BtnYa"
-        Me.BtnYa.Size = New System.Drawing.Size(75, 23)
+        Me.BtnYa.Size = New System.Drawing.Size(76, 28)
         Me.BtnYa.TabIndex = 2
         Me.BtnYa.Text = "Hapus"
-        Me.BtnYa.UseVisualStyleBackColor = True
+        Me.BtnYa.UseVisualStyleBackColor = False
         '
         'BtnTidak
         '
-        Me.BtnTidak.Location = New System.Drawing.Point(327, 224)
+        Me.BtnTidak.BackColor = System.Drawing.Color.White
+        Me.BtnTidak.Location = New System.Drawing.Point(379, 153)
         Me.BtnTidak.Name = "BtnTidak"
-        Me.BtnTidak.Size = New System.Drawing.Size(75, 23)
+        Me.BtnTidak.Size = New System.Drawing.Size(76, 28)
         Me.BtnTidak.TabIndex = 3
         Me.BtnTidak.Text = "Cancel"
-        Me.BtnTidak.UseVisualStyleBackColor = True
+        Me.BtnTidak.UseVisualStyleBackColor = False
         '
         'LblHapus
         '
         Me.LblHapus.AutoSize = True
         Me.LblHapus.Font = New System.Drawing.Font("Cambria", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblHapus.ForeColor = System.Drawing.Color.Red
-        Me.LblHapus.Location = New System.Drawing.Point(209, 127)
+        Me.LblHapus.ForeColor = System.Drawing.Color.IndianRed
+        Me.LblHapus.Location = New System.Drawing.Point(31, 84)
         Me.LblHapus.Name = "LblHapus"
         Me.LblHapus.Size = New System.Drawing.Size(193, 28)
         Me.LblHapus.TabIndex = 4
@@ -72,11 +74,13 @@ Partial Class HapusBarangMasuk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(644, 273)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(492, 212)
         Me.Controls.Add(Me.LblHapus)
         Me.Controls.Add(Me.BtnTidak)
         Me.Controls.Add(Me.BtnYa)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
         Me.Name = "HapusBarangMasuk"
         Me.Text = "HapusBarangMasuk"
         Me.ResumeLayout(False)

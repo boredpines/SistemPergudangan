@@ -30,23 +30,24 @@ Partial Class HapusBarang
         '
         'BtnHapus
         '
-        Me.BtnHapus.Location = New System.Drawing.Point(179, 202)
+        Me.BtnHapus.BackColor = System.Drawing.Color.White
+        Me.BtnHapus.Location = New System.Drawing.Point(205, 161)
         Me.BtnHapus.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnHapus.Name = "BtnHapus"
         Me.BtnHapus.Size = New System.Drawing.Size(78, 28)
         Me.BtnHapus.TabIndex = 5
         Me.BtnHapus.Text = "Hapus"
-        Me.BtnHapus.UseVisualStyleBackColor = True
+        Me.BtnHapus.UseVisualStyleBackColor = False
         '
         'LblBarang
         '
         Me.LblBarang.AutoSize = True
-        Me.LblBarang.Font = New System.Drawing.Font("Cambria", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblBarang.ForeColor = System.Drawing.Color.Red
-        Me.LblBarang.Location = New System.Drawing.Point(218, 118)
+        Me.LblBarang.Font = New System.Drawing.Font("Cambria", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.LblBarang.ForeColor = System.Drawing.Color.IndianRed
+        Me.LblBarang.Location = New System.Drawing.Point(28, 89)
         Me.LblBarang.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblBarang.Name = "LblBarang"
-        Me.LblBarang.Size = New System.Drawing.Size(101, 25)
+        Me.LblBarang.Size = New System.Drawing.Size(112, 28)
         Me.LblBarang.TabIndex = 4
         Me.LblBarang.Text = "Barang A"
         '
@@ -54,7 +55,7 @@ Partial Class HapusBarang
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Cambria", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(83, 64)
+        Me.Label1.Location = New System.Drawing.Point(28, 33)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(361, 22)
@@ -63,24 +64,27 @@ Partial Class HapusBarang
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(295, 202)
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(311, 161)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(78, 28)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Cancel"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'HapusBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(560, 270)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(420, 231)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BtnHapus)
         Me.Controls.Add(Me.LblBarang)
         Me.Controls.Add(Me.Label1)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
         Me.Name = "HapusBarang"
         Me.Text = "HapusBarang"
         Me.ResumeLayout(False)

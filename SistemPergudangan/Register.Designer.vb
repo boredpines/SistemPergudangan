@@ -36,7 +36,7 @@ Partial Class Register
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(30, 198)
+        Me.Label3.Location = New System.Drawing.Point(39, 199)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(79, 21)
         Me.Label3.TabIndex = 13
@@ -47,7 +47,7 @@ Partial Class Register
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(26, 139)
+        Me.Label2.Location = New System.Drawing.Point(35, 140)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 21)
         Me.Label2.TabIndex = 12
@@ -55,14 +55,14 @@ Partial Class Register
         '
         'tbpass
         '
-        Me.tbpass.Location = New System.Drawing.Point(115, 200)
+        Me.tbpass.Location = New System.Drawing.Point(124, 201)
         Me.tbpass.Name = "tbpass"
         Me.tbpass.Size = New System.Drawing.Size(296, 23)
         Me.tbpass.TabIndex = 11
         '
         'tbuname
         '
-        Me.tbuname.Location = New System.Drawing.Point(115, 141)
+        Me.tbuname.Location = New System.Drawing.Point(124, 142)
         Me.tbuname.Name = "tbuname"
         Me.tbuname.Size = New System.Drawing.Size(296, 23)
         Me.tbuname.TabIndex = 10
@@ -76,7 +76,7 @@ Partial Class Register
         Me.btnreg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnreg.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnreg.ForeColor = System.Drawing.Color.White
-        Me.btnreg.Location = New System.Drawing.Point(158, 277)
+        Me.btnreg.Location = New System.Drawing.Point(167, 278)
         Me.btnreg.Name = "btnreg"
         Me.btnreg.Size = New System.Drawing.Size(94, 33)
         Me.btnreg.TabIndex = 9
@@ -92,7 +92,7 @@ Partial Class Register
         Me.btnlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlog.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnlog.ForeColor = System.Drawing.Color.White
-        Me.btnlog.Location = New System.Drawing.Point(271, 277)
+        Me.btnlog.Location = New System.Drawing.Point(280, 278)
         Me.btnlog.Name = "btnlog"
         Me.btnlog.Size = New System.Drawing.Size(140, 33)
         Me.btnlog.TabIndex = 8
@@ -104,7 +104,7 @@ Partial Class Register
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(158, 47)
+        Me.Label1.Location = New System.Drawing.Point(167, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(148, 45)
         Me.Label1.TabIndex = 7
@@ -114,7 +114,7 @@ Partial Class Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(491, 405)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -123,6 +123,7 @@ Partial Class Register
         Me.Controls.Add(Me.btnreg)
         Me.Controls.Add(Me.btnlog)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
         Me.Name = "Register"
         Me.Text = "Register"
         Me.ResumeLayout(False)

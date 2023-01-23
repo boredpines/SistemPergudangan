@@ -37,7 +37,7 @@ Partial Class Order
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(640, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(599, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -53,7 +53,7 @@ Partial Class Order
         Me.DataGridOrder.Location = New System.Drawing.Point(28, 107)
         Me.DataGridOrder.Name = "DataGridOrder"
         Me.DataGridOrder.RowTemplate.Height = 25
-        Me.DataGridOrder.Size = New System.Drawing.Size(424, 150)
+        Me.DataGridOrder.Size = New System.Drawing.Size(539, 246)
         Me.DataGridOrder.TabIndex = 12
         '
         'Label1
@@ -68,37 +68,39 @@ Partial Class Order
         '
         'BtnRmv
         '
-        Me.BtnRmv.AutoSize = True
-        Me.BtnRmv.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BtnRmv.Location = New System.Drawing.Point(471, 107)
+        Me.BtnRmv.BackColor = System.Drawing.Color.White
+        Me.BtnRmv.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnRmv.Location = New System.Drawing.Point(490, 380)
         Me.BtnRmv.Name = "BtnRmv"
-        Me.BtnRmv.Size = New System.Drawing.Size(51, 25)
+        Me.BtnRmv.Size = New System.Drawing.Size(77, 32)
         Me.BtnRmv.TabIndex = 10
         Me.BtnRmv.Text = "Hapus"
-        Me.BtnRmv.UseVisualStyleBackColor = True
+        Me.BtnRmv.UseVisualStyleBackColor = False
         '
         'BtnAdd
         '
-        Me.BtnAdd.AutoSize = True
-        Me.BtnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BtnAdd.Location = New System.Drawing.Point(471, 232)
+        Me.BtnAdd.BackColor = System.Drawing.Color.White
+        Me.BtnAdd.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnAdd.Location = New System.Drawing.Point(28, 380)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(92, 25)
+        Me.BtnAdd.Size = New System.Drawing.Size(104, 32)
         Me.BtnAdd.TabIndex = 9
         Me.BtnAdd.Text = "Tambah Order"
-        Me.BtnAdd.UseVisualStyleBackColor = True
+        Me.BtnAdd.UseVisualStyleBackColor = False
         '
         'Order
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(640, 337)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(599, 435)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.DataGridOrder)
         Me.Controls.Add(Me.BtnRmv)
         Me.Controls.Add(Me.BtnAdd)
+        Me.MaximizeBox = False
         Me.Name = "Order"
         Me.Text = "Order"
         Me.MenuStrip1.ResumeLayout(False)

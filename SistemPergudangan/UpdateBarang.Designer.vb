@@ -30,17 +30,19 @@ Partial Class UpdateBarang
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbjenisup = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btncancel = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BtnUpdateBarang
         '
-        Me.BtnUpdateBarang.Location = New System.Drawing.Point(304, 227)
+        Me.BtnUpdateBarang.BackColor = System.Drawing.Color.White
+        Me.BtnUpdateBarang.Location = New System.Drawing.Point(205, 236)
         Me.BtnUpdateBarang.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnUpdateBarang.Name = "BtnUpdateBarang"
         Me.BtnUpdateBarang.Size = New System.Drawing.Size(92, 25)
         Me.BtnUpdateBarang.TabIndex = 31
-        Me.BtnUpdateBarang.Text = "Update Barang"
-        Me.BtnUpdateBarang.UseVisualStyleBackColor = True
+        Me.BtnUpdateBarang.Text = "Update"
+        Me.BtnUpdateBarang.UseVisualStyleBackColor = False
         '
         'TxtStockUpdate
         '
@@ -61,20 +63,22 @@ Partial Class UpdateBarang
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label5.Location = New System.Drawing.Point(72, 136)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(36, 15)
+        Me.Label5.Size = New System.Drawing.Size(43, 17)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Stock"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label2.Location = New System.Drawing.Point(72, 103)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(79, 15)
+        Me.Label2.Size = New System.Drawing.Size(91, 17)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Nama Barang"
         '
@@ -100,18 +104,31 @@ Partial Class UpdateBarang
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label4.Location = New System.Drawing.Point(72, 167)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 15)
+        Me.Label4.Size = New System.Drawing.Size(85, 17)
         Me.Label4.TabIndex = 32
         Me.Label4.Text = "Jenis Barang"
+        '
+        'btncancel
+        '
+        Me.btncancel.BackColor = System.Drawing.Color.White
+        Me.btncancel.Location = New System.Drawing.Point(321, 236)
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(75, 25)
+        Me.btncancel.TabIndex = 34
+        Me.btncancel.Text = "Cancel"
+        Me.btncancel.UseVisualStyleBackColor = False
         '
         'UpdateBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(457, 314)
+        Me.Controls.Add(Me.btncancel)
         Me.Controls.Add(Me.cbjenisup)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.BtnUpdateBarang)
@@ -121,6 +138,7 @@ Partial Class UpdateBarang
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
         Me.Name = "UpdateBarang"
         Me.Text = "UpdateBarang"
         Me.ResumeLayout(False)
@@ -136,4 +154,5 @@ Partial Class UpdateBarang
     Friend WithEvents Label1 As Label
     Friend WithEvents cbjenisup As ComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents btncancel As Button
 End Class

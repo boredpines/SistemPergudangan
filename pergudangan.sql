@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2023 at 07:59 AM
+-- Generation Time: Jan 23, 2023 at 12:52 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -40,17 +40,18 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `stock`, `nama_jenis`) VALUES
 (10, 'asdsad', 2, 'qeqwe'),
-(11, 'das', 123, 'qeqwe'),
+(11, 'das', 201, 'eqwe'),
 (14, 'adsd', 12, 'eqwe'),
 (15, 'sads', 12, 'eqwe'),
 (16, 'xczx', 131, 'eqwe'),
 (17, 'sdsd', 12, 'eqwe'),
 (19, 'weqw', 2, 'eqwe'),
-(21, 'ff', 1, 'yuok'),
+(21, 'ff', 13, 'yuok'),
 (22, 'www', 11, 'yuok'),
 (23, 'qq', 1, 'yuok'),
 (24, 'aaaaaa', 12, 'yuok'),
-(25, 'qwewqe', 2, 'eqwe');
+(25, 'qwewqe', 2, 'eqwe'),
+(26, 'ads', 33, 'eqwe');
 
 -- --------------------------------------------------------
 
@@ -62,9 +63,18 @@ CREATE TABLE `barang_keluar` (
   `id_order` int(11) NOT NULL,
   `tanggal_order` date NOT NULL,
   `jumlah_order` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `nama_barang` varchar(255) NOT NULL
+  `status` varchar(255) NOT NULL,
+  `nama_barang` varchar(255) NOT NULL,
+  `id_barang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barang_keluar`
+--
+
+INSERT INTO `barang_keluar` (`id_order`, `tanggal_order`, `jumlah_order`, `status`, `nama_barang`, `id_barang`) VALUES
+(9, '2023-01-23', 200, 'Terpenuhi', 'das', 11),
+(11, '2023-01-23', 50, 'Terpenuhi', 'xczx', 16);
 
 -- --------------------------------------------------------
 
@@ -145,7 +155,8 @@ ALTER TABLE `barang`
 --
 ALTER TABLE `barang_keluar`
   ADD PRIMARY KEY (`id_order`),
-  ADD KEY `nama_barang` (`nama_barang`);
+  ADD KEY `nama_barang` (`nama_barang`),
+  ADD KEY `fk_barang` (`id_barang`);
 
 --
 -- Indexes for table `barang_masuk`
@@ -174,19 +185,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jenis_barang`

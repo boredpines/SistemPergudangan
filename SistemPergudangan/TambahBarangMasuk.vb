@@ -52,4 +52,10 @@
         End If
 
     End Sub
+
+    Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
+        Barang.Show()
+        Me.Close()
+
+    End Sub
 End Class

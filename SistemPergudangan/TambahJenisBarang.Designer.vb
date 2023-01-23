@@ -38,7 +38,7 @@ Partial Class TambahJenisBarang
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(180, 24)
+        Me.Label1.Location = New System.Drawing.Point(23, 33)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(232, 25)
         Me.Label1.TabIndex = 0
@@ -55,76 +55,84 @@ Partial Class TambahJenisBarang
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(34, 90)
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.Location = New System.Drawing.Point(41, 93)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(116, 15)
+        Me.Label4.Size = New System.Drawing.Size(135, 20)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Nama Jenis Barang :"
+        Me.Label4.Text = "Nama Jenis Barang"
         '
         'TxtNamaJenis
         '
-        Me.TxtNamaJenis.Location = New System.Drawing.Point(232, 87)
+        Me.TxtNamaJenis.Location = New System.Drawing.Point(206, 94)
         Me.TxtNamaJenis.Name = "TxtNamaJenis"
-        Me.TxtNamaJenis.Size = New System.Drawing.Size(262, 23)
+        Me.TxtNamaJenis.Size = New System.Drawing.Size(211, 23)
         Me.TxtNamaJenis.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(34, 147)
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.Location = New System.Drawing.Point(43, 134)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 15)
+        Me.Label5.Size = New System.Drawing.Size(54, 20)
         Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Satuan :"
+        Me.Label5.Text = "Satuan"
         '
         'CbSatuanJenis
         '
         Me.CbSatuanJenis.FormattingEnabled = True
         Me.CbSatuanJenis.Items.AddRange(New Object() {"Pcs", "Kilogram", "Gram", "Bungkus", "Buah"})
-        Me.CbSatuanJenis.Location = New System.Drawing.Point(232, 147)
+        Me.CbSatuanJenis.Location = New System.Drawing.Point(206, 134)
         Me.CbSatuanJenis.Name = "CbSatuanJenis"
-        Me.CbSatuanJenis.Size = New System.Drawing.Size(262, 23)
+        Me.CbSatuanJenis.Size = New System.Drawing.Size(211, 23)
         Me.CbSatuanJenis.TabIndex = 7
         '
         'BtnCloseJenis
         '
-        Me.BtnCloseJenis.Location = New System.Drawing.Point(354, 291)
+        Me.BtnCloseJenis.BackColor = System.Drawing.Color.White
+        Me.BtnCloseJenis.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnCloseJenis.Location = New System.Drawing.Point(335, 234)
         Me.BtnCloseJenis.Name = "BtnCloseJenis"
-        Me.BtnCloseJenis.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCloseJenis.Size = New System.Drawing.Size(82, 30)
         Me.BtnCloseJenis.TabIndex = 8
         Me.BtnCloseJenis.Text = "Cancel"
-        Me.BtnCloseJenis.UseVisualStyleBackColor = True
+        Me.BtnCloseJenis.UseVisualStyleBackColor = False
         '
         'BtnAdd
         '
-        Me.BtnAdd.Location = New System.Drawing.Point(232, 291)
+        Me.BtnAdd.BackColor = System.Drawing.Color.White
+        Me.BtnAdd.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnAdd.Location = New System.Drawing.Point(228, 234)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAdd.Size = New System.Drawing.Size(82, 30)
         Me.BtnAdd.TabIndex = 9
         Me.BtnAdd.Text = "Tambah"
-        Me.BtnAdd.UseVisualStyleBackColor = True
+        Me.BtnAdd.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(34, 205)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Location = New System.Drawing.Point(41, 176)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 15)
+        Me.Label2.Size = New System.Drawing.Size(55, 20)
         Me.Label2.TabIndex = 10
-        Me.Label2.Text = "Jumlah :"
+        Me.Label2.Text = "Jumlah"
         '
         'txtjumlah
         '
-        Me.txtjumlah.Location = New System.Drawing.Point(232, 197)
+        Me.txtjumlah.Location = New System.Drawing.Point(206, 176)
         Me.txtjumlah.Name = "txtjumlah"
-        Me.txtjumlah.Size = New System.Drawing.Size(262, 23)
+        Me.txtjumlah.Size = New System.Drawing.Size(211, 23)
         Me.txtjumlah.TabIndex = 11
         '
         'TambahJenisBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(561, 361)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(457, 306)
         Me.Controls.Add(Me.txtjumlah)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnAdd)
@@ -136,6 +144,7 @@ Partial Class TambahJenisBarang
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Cambria", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.MaximizeBox = False
         Me.Name = "TambahJenisBarang"
         Me.Text = "TambahJenisBarang"
         Me.ResumeLayout(False)

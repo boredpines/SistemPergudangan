@@ -11,35 +11,35 @@ Public Class UpdateBarang
 
         ' Add any initialization after the InitializeComponent() call.
 
-        'TxtIDBUpdate.Text = MainMenu.datagudang.GSIDBarang
-        'TxtJenisUpdate.Text = MainMenu.datagudang.GSIDJenis
-
         fungsiBarang = New FungsiBarang()
         TxtBarangUpdate.Text = MainMenu.datagudang.GSNama
         TxtStockUpdate.Text = MainMenu.datagudang.GSStock
         cbjenisup.Text = MainMenu.datagudang.GSnamajenis
+
     End Sub
 
     Private Sub BtnUpdateBarang_Click(sender As Object, e As EventArgs) Handles BtnUpdateBarang.Click
+        If cbjenisup.Text = "Pilih Jenis" Then
+            MessageBox.Show("Harap pilih jenis barang!")
+        Else
+            MainMenu.datagudang.GSNama = TxtBarangUpdate.Text.ToString()
+            MainMenu.datagudang.GSStock = Integer.Parse(TxtStockUpdate.Text)
+            MainMenu.datagudang.GSnamajenis = cbjenisup.SelectedItem.ToString()
 
-        'MainMenu.datagudang.GSIDBarang = Integer.Parse(TxtIDBUpdate.Text)
-        'MainMenu.datagudang.GSIDJenis = Integer.Parse(TxtJenisUpdate.Text)
-
-        MainMenu.datagudang.GSNama = TxtBarangUpdate.Text.ToString()
-        MainMenu.datagudang.GSStock = Integer.Parse(TxtStockUpdate.Text)
-        MainMenu.datagudang.GSnamajenis = cbjenisup.SelectedItem.ToString()
-
-        MainMenu.datagudang.UpdateDataBarangByIDDatabase(MainMenu.selectedTableBarang,
+            MainMenu.datagudang.UpdateDataBarangByIDDatabase(MainMenu.selectedTableBarang,
                                                          MainMenu.datagudang.GSNama, MainMenu.datagudang.GSStock, MainMenu.datagudang.GSnamajenis)
 
 
-        Dim infoBarang = New MainMenu()
-        infoBarang.Show()
-        Me.Close()
+            Dim bm = New MainMenu()
+            bm.Show()
+            Me.Close()
+
+        End If
+
     End Sub
 
     Private Sub UpdateBarang_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        cbjenisup.Text = "Pilih Barang"
+        cbjenisup.Text = "Pilih Jenis"
         datas = fungsiBarang.GetData()
         cbjenisup.Items.Clear()
         For Each dataa In datas
@@ -62,6 +62,12 @@ Public Class UpdateBarang
             TxtBarangUpdate.Select()
             MessageBox.Show("Do Not Leave This Field Empty!")
         End If
+
+    End Sub
+
+    Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
+        MainMenu.Show()
+        Me.Close()
 
     End Sub
 End Class

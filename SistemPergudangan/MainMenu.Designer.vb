@@ -43,7 +43,7 @@ Partial Class MainMenu
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 1, 0, 1)
-        Me.MenuStrip1.Size = New System.Drawing.Size(598, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(528, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -67,33 +67,36 @@ Partial Class MainMenu
         '
         'BtnRemove
         '
-        Me.BtnRemove.Location = New System.Drawing.Point(496, 267)
+        Me.BtnRemove.BackColor = System.Drawing.Color.White
+        Me.BtnRemove.Location = New System.Drawing.Point(418, 347)
         Me.BtnRemove.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnRemove.Name = "BtnRemove"
         Me.BtnRemove.Size = New System.Drawing.Size(78, 25)
         Me.BtnRemove.TabIndex = 13
         Me.BtnRemove.Text = "Remove" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.BtnRemove.UseVisualStyleBackColor = True
+        Me.BtnRemove.UseVisualStyleBackColor = False
         '
         'BtnUpdate
         '
-        Me.BtnUpdate.Location = New System.Drawing.Point(397, 267)
+        Me.BtnUpdate.BackColor = System.Drawing.Color.White
+        Me.BtnUpdate.Location = New System.Drawing.Point(319, 347)
         Me.BtnUpdate.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnUpdate.Name = "BtnUpdate"
         Me.BtnUpdate.Size = New System.Drawing.Size(78, 25)
         Me.BtnUpdate.TabIndex = 12
         Me.BtnUpdate.Text = "Update"
-        Me.BtnUpdate.UseVisualStyleBackColor = True
+        Me.BtnUpdate.UseVisualStyleBackColor = False
         '
         'BtnAdd
         '
-        Me.BtnAdd.Location = New System.Drawing.Point(296, 267)
+        Me.BtnAdd.BackColor = System.Drawing.Color.White
+        Me.BtnAdd.Location = New System.Drawing.Point(218, 347)
         Me.BtnAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(78, 25)
         Me.BtnAdd.TabIndex = 11
         Me.BtnAdd.Text = "Add" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.BtnAdd.UseVisualStyleBackColor = True
+        Me.BtnAdd.UseVisualStyleBackColor = False
         '
         'DataGridBarang
         '
@@ -103,7 +106,7 @@ Partial Class MainMenu
         Me.DataGridBarang.Name = "DataGridBarang"
         Me.DataGridBarang.RowHeadersWidth = 62
         Me.DataGridBarang.RowTemplate.Height = 33
-        Me.DataGridBarang.Size = New System.Drawing.Size(552, 135)
+        Me.DataGridBarang.Size = New System.Drawing.Size(474, 210)
         Me.DataGridBarang.TabIndex = 9
         '
         'Label1
@@ -118,12 +121,12 @@ Partial Class MainMenu
         '
         'btnlogout
         '
-        Me.btnlogout.BackColor = System.Drawing.Color.Firebrick
+        Me.btnlogout.BackColor = System.Drawing.Color.IndianRed
         Me.btnlogout.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnlogout.ForeColor = System.Drawing.Color.White
-        Me.btnlogout.Location = New System.Drawing.Point(489, 43)
+        Me.btnlogout.Location = New System.Drawing.Point(404, 43)
         Me.btnlogout.Name = "btnlogout"
-        Me.btnlogout.Size = New System.Drawing.Size(85, 29)
+        Me.btnlogout.Size = New System.Drawing.Size(92, 32)
         Me.btnlogout.TabIndex = 15
         Me.btnlogout.Text = "LOGOUT"
         Me.btnlogout.UseVisualStyleBackColor = False
@@ -132,7 +135,8 @@ Partial Class MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(598, 312)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(528, 394)
         Me.Controls.Add(Me.btnlogout)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -141,6 +145,7 @@ Partial Class MainMenu
         Me.Controls.Add(Me.BtnAdd)
         Me.Controls.Add(Me.DataGridBarang)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
         Me.Name = "MainMenu"
         Me.Text = "MainMenu"
         Me.MenuStrip1.ResumeLayout(False)

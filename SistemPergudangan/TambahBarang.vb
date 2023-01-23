@@ -11,6 +11,7 @@ Public Class TambahBarang
 
         ' Add any initialization after the InitializeComponent() call.
         fungsiBarang = New FungsiBarang()
+
     End Sub
 
     'Private Sub TxtBarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtBarang.KeyPress
@@ -42,7 +43,7 @@ Public Class TambahBarang
 
             Dim main = New MainMenu()
             main.Show()
-            Me.Hide()
+            Me.Close()
         End If
 
     End Sub
@@ -69,5 +70,11 @@ Public Class TambahBarang
             TxtStock.Select()
             MessageBox.Show("Please add at least 1 number")
         End If
+    End Sub
+
+    Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
+        MainMenu.Show()
+        Me.Close()
+
     End Sub
 End Class

@@ -17,4 +17,5 @@
         JenisBarang.Jenis_Barang.DeleteDataJenisByIDDatabase(JenisBarang.selectedTableKoleksiDB)
         Me.Close()
     End Sub
+
 End Class

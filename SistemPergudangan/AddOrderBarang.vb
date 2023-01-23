@@ -32,7 +32,7 @@ Public Class AddOrderBarang
 
             Dim bac = New Order()
             bac.Show()
-            Me.Hide()
+            Me.Close()
         End If
     End Sub
 
@@ -59,5 +59,11 @@ Public Class AddOrderBarang
             txtjumlahorder.Select()
             MessageBox.Show("Please add at least 1 number")
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim bac = New Order()
+        bac.Show()
+        Me.Close()
     End Sub
 End Class

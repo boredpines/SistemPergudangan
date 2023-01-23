@@ -1,5 +1,4 @@
 ﻿Public Class Login
-    'Public Shared Barang As Barang
     Public Shared user As User
 
     Public Sub New()
@@ -9,7 +8,6 @@
 
         ' Add any initialization after the InitializeComponent() call.
         user = New User()
-        'Barang = New Barang()
 
     End Sub
     Private Sub butlogin_Click(sender As Object, e As EventArgs) Handles butlogin.Click

@@ -31,58 +31,61 @@ Partial Class HapusJenisBarang
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(60, 85)
+        Me.Label1.Location = New System.Drawing.Point(31, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(424, 17)
+        Me.Label1.Size = New System.Drawing.Size(448, 21)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "APAKAH ANDA YAKIN INGIN MENGHAPUS JENIS BARANG INI?"
         '
         'LblHapusJenis
         '
         Me.LblHapusJenis.AutoSize = True
-        Me.LblHapusJenis.BackColor = System.Drawing.SystemColors.Control
-        Me.LblHapusJenis.Font = New System.Drawing.Font("Imprint MT Shadow", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblHapusJenis.ForeColor = System.Drawing.Color.Red
-        Me.LblHapusJenis.Location = New System.Drawing.Point(160, 118)
+        Me.LblHapusJenis.BackColor = System.Drawing.Color.Transparent
+        Me.LblHapusJenis.Font = New System.Drawing.Font("Cambria", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.LblHapusJenis.ForeColor = System.Drawing.Color.IndianRed
+        Me.LblHapusJenis.Location = New System.Drawing.Point(31, 85)
         Me.LblHapusJenis.Name = "LblHapusJenis"
-        Me.LblHapusJenis.Size = New System.Drawing.Size(205, 38)
+        Me.LblHapusJenis.Size = New System.Drawing.Size(201, 37)
         Me.LblHapusJenis.TabIndex = 1
-        Me.LblHapusJenis.Text = "(ID, NAMA)"
+        Me.LblHapusJenis.Text = "Jenis Barang"
         '
         'BtnHapusJenis
         '
-        Me.BtnHapusJenis.Font = New System.Drawing.Font("Cambria", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.BtnHapusJenis.Location = New System.Drawing.Point(160, 228)
+        Me.BtnHapusJenis.BackColor = System.Drawing.Color.White
+        Me.BtnHapusJenis.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnHapusJenis.Location = New System.Drawing.Point(294, 159)
         Me.BtnHapusJenis.Name = "BtnHapusJenis"
-        Me.BtnHapusJenis.Size = New System.Drawing.Size(75, 23)
+        Me.BtnHapusJenis.Size = New System.Drawing.Size(79, 29)
         Me.BtnHapusJenis.TabIndex = 2
         Me.BtnHapusJenis.Text = "Hapus"
-        Me.BtnHapusJenis.UseVisualStyleBackColor = True
+        Me.BtnHapusJenis.UseVisualStyleBackColor = False
         '
         'BtnCloseHapus
         '
-        Me.BtnCloseHapus.Font = New System.Drawing.Font("Cambria", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.BtnCloseHapus.Location = New System.Drawing.Point(290, 228)
+        Me.BtnCloseHapus.BackColor = System.Drawing.Color.White
+        Me.BtnCloseHapus.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnCloseHapus.Location = New System.Drawing.Point(398, 159)
         Me.BtnCloseHapus.Name = "BtnCloseHapus"
-        Me.BtnCloseHapus.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCloseHapus.Size = New System.Drawing.Size(79, 29)
         Me.BtnCloseHapus.TabIndex = 3
         Me.BtnCloseHapus.Text = "Cancel"
-        Me.BtnCloseHapus.UseVisualStyleBackColor = True
+        Me.BtnCloseHapus.UseVisualStyleBackColor = False
         '
         'HapusJenisBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(542, 315)
+        Me.ClientSize = New System.Drawing.Size(515, 230)
         Me.Controls.Add(Me.BtnCloseHapus)
         Me.Controls.Add(Me.BtnHapusJenis)
         Me.Controls.Add(Me.LblHapusJenis)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.MaximizeBox = False
         Me.Name = "HapusJenisBarang"
         Me.Text = "HapusJenisBarang"
         Me.ResumeLayout(False)
