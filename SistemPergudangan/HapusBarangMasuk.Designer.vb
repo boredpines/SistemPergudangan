@@ -35,14 +35,14 @@ Partial Class HapusBarangMasuk
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(31, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(427, 20)
+        Me.Label1.Size = New System.Drawing.Size(372, 20)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "APAKAH ANDA YAKIN INGIN MENGHAPUS JENIS BARANG INI?"
+        Me.Label1.Text = "APAKAH ANDA YAKIN INGIN MENGHAPUS ENTRY INI?"
         '
         'BtnYa
         '
         Me.BtnYa.BackColor = System.Drawing.Color.White
-        Me.BtnYa.Location = New System.Drawing.Point(283, 153)
+        Me.BtnYa.Location = New System.Drawing.Point(231, 141)
         Me.BtnYa.Name = "BtnYa"
         Me.BtnYa.Size = New System.Drawing.Size(76, 28)
         Me.BtnYa.TabIndex = 2
@@ -52,7 +52,7 @@ Partial Class HapusBarangMasuk
         'BtnTidak
         '
         Me.BtnTidak.BackColor = System.Drawing.Color.White
-        Me.BtnTidak.Location = New System.Drawing.Point(379, 153)
+        Me.BtnTidak.Location = New System.Drawing.Point(327, 141)
         Me.BtnTidak.Name = "BtnTidak"
         Me.BtnTidak.Size = New System.Drawing.Size(76, 28)
         Me.BtnTidak.TabIndex = 3
@@ -75,7 +75,7 @@ Partial Class HapusBarangMasuk
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(492, 212)
+        Me.ClientSize = New System.Drawing.Size(440, 193)
         Me.Controls.Add(Me.LblHapus)
         Me.Controls.Add(Me.BtnTidak)
         Me.Controls.Add(Me.BtnYa)
