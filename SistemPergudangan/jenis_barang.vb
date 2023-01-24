@@ -149,7 +149,7 @@ Public Class jenis_barang
             username + ";" + "password = " + password + ";" + "database = " + database
         Try
             DbConn.Open()
-            sqlQuery = "SELECT nama_jenis FROM jenis_darang"
+            sqlQuery = "SELECT nama_jenis FROM jenis_barang"
             Try
                 sqlCommand = New MySqlCommand(sqlQuery, DbConn)
                 sqlRead = sqlCommand.ExecuteReader
@@ -223,6 +223,8 @@ Public Class jenis_barang
                        "nama_jenis='" & nama_jenis & "', " &
                        "jumlah='" & jumlah & "', " &
                        "satuan='" & satuan & "' WHERE id_jenis ='" & ID & "'"
+
+            Debug.WriteLine(sqlQuery)
 
             Try
                 sqlCommand = New MySqlCommand(sqlQuery, DbConn)

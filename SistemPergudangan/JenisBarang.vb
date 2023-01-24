@@ -41,6 +41,8 @@ Public Class JenisBarang
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Dim add = New TambahJenisBarang
         add.Show()
+        Me.Hide()
+
     End Sub
 
     Private Sub JenisBarang_Activated(sender As Object, e As EventArgs) Handles Me.Activated

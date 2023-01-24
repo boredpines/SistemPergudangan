@@ -17,13 +17,13 @@
     End Sub
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
+        JenisBarang.Jenis_Barang.GSNamaJenis = txtupjenis.Text.ToString()
+        JenisBarang.Jenis_Barang.GSjumlah = Integer.Parse(txtupjumlah.Text)
+        JenisBarang.Jenis_Barang.GSSatuanJenis = cbupsatuan.Text.ToString()
+
         If cbupsatuan.Text = "" Then
             MessageBox.Show("Harap pilih satuan jenis!")
         Else
-            JenisBarang.Jenis_Barang.GSNamaJenis = txtupjenis.Text.ToString()
-            JenisBarang.Jenis_Barang.GSjumlah = Integer.Parse(txtupjumlah.Text)
-            JenisBarang.Jenis_Barang.GSSatuanJenis = cbupsatuan.Text.ToString()
-
             JenisBarang.Jenis_Barang.UpdateDataJenisByID(JenisBarang.selectedTableKoleksiDB,
                                                     JenisBarang.Jenis_Barang.GSNamaJenis,
                                                     JenisBarang.Jenis_Barang.GSjumlah,
