@@ -70,4 +70,12 @@ Public Class UpdateBarang
         Me.Close()
 
     End Sub
+
+    Private Sub TxtStockUpdate_Leave(sender As Object, e As EventArgs) Handles TxtStockUpdate.Leave
+        If TxtStockUpdate.Text.Length < 1 Then
+            TxtStockUpdate.Select()
+            MessageBox.Show("Do Not Leave This Field Empty!")
+        End If
+
+    End Sub
 End Class

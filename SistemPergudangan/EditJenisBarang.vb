@@ -12,6 +12,7 @@
 
     End Sub
     Private Sub BtnCloseJenisUpdate_Click(sender As Object, e As EventArgs) Handles BtnCloseJenisUpdate.Click
+        JenisBarang.Show()
         Me.Close()
     End Sub
 
@@ -21,7 +22,7 @@
         Else
             JenisBarang.Jenis_Barang.GSNamaJenis = txtupjenis.Text.ToString()
             JenisBarang.Jenis_Barang.GSjumlah = Integer.Parse(txtupjumlah.Text)
-            JenisBarang.Jenis_Barang.GSSatuanJenis = cbupsatuan.SelectedItem.ToString()
+            JenisBarang.Jenis_Barang.GSSatuanJenis = cbupsatuan.Text.ToString()
 
             JenisBarang.Jenis_Barang.UpdateDataJenisByID(JenisBarang.selectedTableKoleksiDB,
                                                     JenisBarang.Jenis_Barang.GSNamaJenis,

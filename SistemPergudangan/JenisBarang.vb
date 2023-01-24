@@ -63,7 +63,7 @@ Public Class JenisBarang
         Try
             showselectedDB()
             EditJenisBarang.Show()
-
+            Me.Hide()
         Catch ex As Exception
             MsgBox("You Must Min. 1 Collection", MsgBoxStyle.Critical, "Failure")
         End Try

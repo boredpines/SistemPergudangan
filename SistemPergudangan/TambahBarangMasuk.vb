@@ -24,9 +24,12 @@
     Private Sub BtnTambah_Click(sender As Object, e As EventArgs) Handles BtnTambah.Click
         If CbBarang.Text = "Pilih Barang" Then
             MessageBox.Show("Pilih Barang Masuk!")
+        ElseIf TxtJumlah.Text.Length < 1 Then
+            TxtJumlah.Select()
+            MessageBox.Show("Please add at least 1 number")
         Else
             FungsiBarangMasuk.GSNamaBarang = CbBarang.Text
-            FungsiBarangMasuk.GSjumlah = TxtJumlah.Text
+            FungsiBarangMasuk.GSjumlah = Integer.Parse(TxtJumlah.Text)
             FungsiBarangMasuk.GStglmasuk = DateTimePicker1.Value.ToShortDateString
 
             FungsiBarangMasuk.AddDataBarang(FungsiBarangMasuk.GSNamaBarang, FungsiBarangMasuk.GSjumlah, FungsiBarangMasuk.GStglmasuk)
@@ -45,13 +48,12 @@
 
     End Sub
 
-    Private Sub TxtJumlah_Leave(sender As Object, e As EventArgs) Handles TxtJumlah.Leave
-        If TxtJumlah.Text.Length < 1 Then
-            TxtJumlah.Select()
-            MessageBox.Show("Please add at least 1 number")
-        End If
-
-    End Sub
+    'Private Sub TxtJumlah_Leave(sender As Object, e As EventArgs) Handles TxtJumlah.Leave
+    '    If TxtJumlah.Text.Length < 1 Then
+    '        TxtJumlah.Select()
+    '        MessageBox.Show("Please add at least 1 number")
+    '    End If
+    'End Sub
 
     Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
         Barang.Show()

@@ -18,10 +18,13 @@ Public Class AddOrderBarang
     Private Sub BtnOrder_Click(sender As Object, e As EventArgs) Handles BtnOrder.Click
         If cbnamabarang.Text = "Pilih Barang" Then
             MessageBox.Show("Silahkan Pilih Barang!")
+        ElseIf txtjumlahorder.Text.Length < 1 Then
+            txtjumlahorder.Select()
+            MessageBox.Show("Do Not leave any field empty")
         Else
             order.GSnamabarang = cbnamabarang.SelectedItem.ToString
             order.GSTanggalOrder = dateorder.Value.ToShortDateString
-            order.GSJumlahOrder = txtjumlahorder.Text
+            order.GSJumlahOrder = Integer.Parse(txtjumlahorder.Text)
             stok = order.GetPrevSum(cbnamabarang.Text)
 
             If order.CheckStatus(stok, txtjumlahorder.Text) Then
@@ -54,12 +57,12 @@ Public Class AddOrderBarang
         End If
     End Sub
 
-    Private Sub txtjumlahorder_Leave(sender As Object, e As EventArgs) Handles txtjumlahorder.Leave
-        If txtjumlahorder.Text.Length < 1 Then
-            txtjumlahorder.Select()
-            MessageBox.Show("Please add at least 1 number")
-        End If
-    End Sub
+    'Private Sub txtjumlahorder_Leave(sender As Object, e As EventArgs) Handles txtjumlahorder.Leave
+    '    If txtjumlahorder.Text.Length < 1 Then
+    '        txtjumlahorder.Select()
+    '        MessageBox.Show("Please add at least 1 number")
+    '    End If
+    'End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim bac = New Order()
